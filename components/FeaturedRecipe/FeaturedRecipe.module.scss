@@ -1,0 +1,126 @@
+@import '../../styles/variables.scss';
+
+.featured {
+    background: linear-gradient($med-blue 60%, $main-light 40%);
+    margin: 7rem;
+    min-height: 40rem;
+
+    display: flex; 
+    padding: 5rem 0 1rem 7rem;
+    border-radius: 1rem;
+
+    &__image {
+        border: 1px solid black;
+        background-color: $main-dark;
+
+        height: 30rem;
+        width: 30rem;
+        // margin: 4rem 0 1rem 7rem;
+
+        border-radius: 3rem;
+
+        flex: none;
+    }
+
+    &__title-desc {
+        // border: 1px solid yellow;
+        display: flex;
+        flex-direction: column;
+        width: 35rem;
+
+        margin-left: 1.5rem;
+        margin-top: 1.8rem;
+    }
+
+    &__title {
+        // border: 1px solid black;
+        
+        color: $main-light;
+        font-size: 4.7rem;
+        font-weight: lighter;
+        word-spacing: 9999rem; // trick to single word line
+        line-height: 5rem;
+        margin-bottom: 1rem;
+        
+        
+        flex: 0;
+        align-self: center;
+
+        &-text {
+            font-weight: normal;
+
+            &--last {
+                font-weight: 700;
+            }
+        }
+    }
+
+    &__desc {
+        // border: 1px solid black;
+        
+        font-family: "DM Mono", monospace;
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 2rem;
+
+        
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+
+
+        &--main {
+
+        }
+
+        &--byline {
+            padding-top: 1rem;
+            font-weight: 700;
+        }
+    }
+
+    &__next {
+        font-size: 1.5rem;
+
+        // margin-left: auto;
+        position: absolute;
+        right: 12rem;
+        top: 28rem;
+    }
+
+    &__info { // for future -> div each for text / nums, center along axes.
+        // border: 1px solid black;
+
+        font-size: 2rem;
+
+        
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+
+        align-items: flex-end;
+
+        margin-left: auto;
+        position: relative;
+        bottom: 5rem;
+
+        padding: 2rem;
+
+        &-serves--text,
+        &-ing--text,
+        &-time--text {
+            font-weight: bold;
+            padding-right: 2rem;
+
+        }
+
+        &-serves--num,
+        &-ing--num,
+        &-time--num {
+            font-style: italic;
+            color: $main-light;
+
+        }
+
+    }
+}

@@ -1,13 +1,16 @@
+@import '../../styles/variables.scss';
+
 .nav {
     // border: 2px solid black;
-    border-bottom: 5px solid black;
+    border-bottom: 5px solid $main-dark;
 
-    min-width: 80%;
+    // min-width: 80%; /// ?
     min-height: 10rem;
     margin: 7rem;
     padding-bottom: 1.5rem;
 
     font-size: 2.5rem;
+    color: $main-dark;
     
     display: flex;
     align-items: flex-end;
@@ -65,7 +68,7 @@
 
         transform: translateY(0.8rem);
 
-        &--login {
+        &-login {
             font-style: normal;
             text-decoration: underline;
         }

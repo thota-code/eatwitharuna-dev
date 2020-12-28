@@ -13,15 +13,15 @@ export default function Navbar({ username }) {
                 </div>
 
                 <div className={s['nav__func']}>
-                    <span className={s['nav__func--search']}>search</span>
-                    <span className={s['nav__func--recipes']}>recipes</span>
-                    <span className={s['nav__func--pantry']}>pantry</span>
+                    <span className={s['nav__func-search']}>search</span>
+                    <span className={s['nav__func-recipes']}>recipes</span>
+                    <span className={s['nav__func-pantry']}>pantry</span>
                 </div>
 
                 <div className={s["nav__social"]}>
-                    <span className={s["nav__social--login"]}>register</span>
-                    <span className={s["nav__social--about"]}>about</span>
-                    <span className={s["nav__social--socials"]}>socials</span>
+                    <span className={s["nav__social-login"]}>register</span>
+                    <span className={s["nav__social-about"]}>about</span>
+                    <span className={s["nav__social-socials"]}>socials</span>
                 </div>
             </header>
         </>
