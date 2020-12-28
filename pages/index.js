@@ -3,20 +3,30 @@ import Head from 'next/head'
 
 import Navbar from '../components/Navbar/Navbar';
 import FeaturedRecipe from '../components/FeaturedRecipe/FeaturedRecipe';
+import Footer from '../components/Footer/Footer';
 
 export default function Home() {
   return (
-    <>
+    <div className="index">
       <Head>
         <title>Eat with Aruna</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
       <Navbar />
-      
-      <div className="featured-section">
-        <FeaturedRecipe />
-      </div>
-    </>
+
+      <main className="main-content">
+        <div className="featured-section">
+          <FeaturedRecipe />
+        </div>
+
+        {/* more stuff */}
+      </main>
+
+      <footer className="footer">
+        <Footer />
+      </footer>
+
+    </div>
   )
 }
