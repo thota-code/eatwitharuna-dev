@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Navbar from '../components/Navbar/Navbar';
 import FeaturedRecipe from '../components/FeaturedRecipe/FeaturedRecipe';
 import Footer from '../components/Footer/Footer';
+import SingleRecipe from '../components/SingleRecipe/SingleRecipe';
 
 export default function Home() {
   return (
@@ -26,6 +27,8 @@ export default function Home() {
       <footer className="footer">
         <Footer />
       </footer>
+
+      <SingleRecipe />
 
     </div>
   )

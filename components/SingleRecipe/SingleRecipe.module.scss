@@ -1,0 +1,124 @@
+@import '../../styles/variables.scss';
+
+.recipe {
+    // border: 1px solid black;
+
+    margin: 7rem;
+    padding-bottom: 2rem;
+
+    font-size: 2.5rem;
+    color: $main-dark;
+    
+    display: flex;
+    align-items: flex-end;
+
+    &__head {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        &-title-tagsline {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+            max-width: 110rem;
+        }
+
+        &-title {
+            font-family: "DM Sans", sans-serif;
+            font-size: 6.4rem;
+            font-weight: 500;
+            line-height: 7rem;
+            color: $main-green;
+        }
+
+        &-tagsline {
+            font-family: "DM Mono", monospace;
+            font-size: 2.6rem;
+            font-weight: 400;
+            padding-left: 1.5rem;
+        }
+
+        &-main {
+            display: flex;
+
+            background: linear-gradient(to right, $main-green, 95%, $main-light 5%);
+
+            margin-left: 1rem;
+            min-height: 58rem;
+            // flex: none;
+            &--ingredients {
+                padding: 3rem;
+
+                &-title {
+                    font-family: "DM Mono", monospace;
+                    font-size: 3rem;
+                    font-style: italic;
+                    color: $main-light;
+
+
+                }
+
+                &-table {
+                    // margin-top: 2rem;
+                    border-collapse: collapse;
+                    width: 70rem; 
+
+                    color: $main-light;
+
+                    &-row {
+                        border-bottom: 2px solid $main-light;
+                    }
+
+                    td:nth-child(2) {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        &-diff-image-info {
+            display: flex;
+            flex-direction: column;
+
+            position: absolute;
+            right: 7rem;
+
+            margin-top: 5rem;
+            // top: 5rem;
+        }
+
+        &-diff {
+            // diff
+        }
+
+        &-image {
+            background-color: $main-dark;
+            height: 55rem;
+            width: 55rem;
+        }
+
+        &-info {
+            // border: 1px solid black;
+            max-width: 50rem;
+            display: flex;
+
+            &-time-serves,
+            &-prep-cook {
+                display: flex;
+                flex-direction: column;
+                margin: 1rem;
+                line-height: 3.5rem;
+            }
+            
+            &--total-num,
+            &--serves-num,
+            &--prep-num,
+            &--cook-num {
+                // color: $main-light;
+                font-size: 10rem;
+            }
+
+        }
+    }
+}
