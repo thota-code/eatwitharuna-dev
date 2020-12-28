@@ -1,10 +1,10 @@
 import Head from 'next/head'
 // import styles from 'styles/Home.module.scss'
 
-import Navbar from '../components/Navbar/Navbar';
-import FeaturedRecipe from '../components/FeaturedRecipe/FeaturedRecipe';
-import Footer from '../components/Footer/Footer';
-import SingleRecipe from '../components/SingleRecipe/SingleRecipe';
+import Navbar from 'components/Navbar/Navbar';
+import FeaturedRecipe from 'components/FeaturedRecipe/FeaturedRecipe';
+import Footer from 'components/Footer/Footer';
+import SingleRecipe from 'components/SingleRecipe/SingleRecipe';
 
 export default function Home() {
   return (
