@@ -1,0 +1,75 @@
+.nav {
+    // border: 2px solid black;
+    border-bottom: 5px solid black;
+
+    min-width: 80%;
+    min-height: 10rem;
+    margin: 7rem;
+    padding-bottom: 1.5rem;
+
+    font-size: 2.5rem;
+    
+    display: flex;
+    align-items: flex-end;
+
+    &__logo {
+        // border: 1px solid black;
+
+        font-family: 'DM Sans', sans-serif;
+        font-size: 4.5rem;
+        font-weight: 700;
+        font-style: italic;
+        line-height: 87%;
+
+        word-spacing: 9999rem; // trick to single word line
+
+        flex: 0;
+        align-self: stretch;
+        // width: 20rem;
+        margin-left: 1rem;
+    }
+
+    &__func {
+        // border: 1px solid black;
+
+        font-family: 'DM Mono', monospace;
+        font-size: 3rem;
+        font-weight: 400;
+        font-style: italic;
+
+        
+        display: flex;
+        width: 45rem;
+        justify-content: space-evenly;
+        margin-left: 3.5rem;
+
+        transform: translateY(0.8rem);
+    }
+
+
+
+
+
+    &__social {
+        // border: 1px solid black;
+
+        font-family: 'DM Mono', monospace;
+        font-size: 2rem;
+        font-weight: 400;
+        font-style: italic;
+
+        display: flex;
+        width: 35rem;
+        justify-content: space-evenly;
+        margin-left: auto;
+
+        transform: translateY(0.8rem);
+
+        &--login {
+            font-style: normal;
+            text-decoration: underline;
+        }
+    }
+
+
+}
