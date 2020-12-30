@@ -9,6 +9,28 @@
     padding: 5rem 0 1rem 7rem;
     border-radius: 1rem;
 
+    &__tags {
+        // border: 1px solid black;
+
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: $main-light;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+
+        position: absolute;
+        
+        margin-left: -6rem;
+        margin-top: -4.7rem;
+        max-height: 8rem;
+
+        // flex: 0;
+        z-index: 100;
+    }
+
     &__image {
         border: 1px solid black;
         background-color: $main-dark;
@@ -41,6 +63,7 @@
         word-spacing: 9999rem; // trick to single word line
         line-height: 5rem;
         margin-bottom: 1rem;
+        min-height: 15rem;
         
         
         flex: 0;
