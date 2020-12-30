@@ -6,17 +6,22 @@ import FeaturedRecipe from 'components/FeaturedRecipe/FeaturedRecipe';
 import Footer from 'components/Footer/Footer';
 import SingleRecipe from 'components/SingleRecipe/SingleRecipe';
 
+import { featuredRecipeUtil } from 'utilities/util';
+
 export async function getStaticProps(ctx) {
+  let featuredRecipe = await featuredRecipeUtil()
+    .catch(err => console.log(err));
+
+  // if (!featuredRecipe) {featuredRecipe = false};
 
   return {
     props: {
-
+      featuredRecipe: featuredRecipe,
     }
   }
 }
 
-export default function Home(props) {
-
+export default function Home({ featuredRecipe }) {
   return (
     <div className="index">
       <Head>
@@ -28,7 +33,7 @@ export default function Home(props) {
 
       <main className="main-content">
         <div className="featured-section">
-          <FeaturedRecipe />
+          <FeaturedRecipe fR={featuredRecipe} />
         </div>
 
         {/* more stuff */}

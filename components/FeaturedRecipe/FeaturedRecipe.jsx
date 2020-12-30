@@ -2,21 +2,54 @@ import { useState } from 'react';
 
 import s from './FeaturedRecipe.module.scss';
 
-export default function FeaturedRecipe(props) {
-    // console.log(props);
+export default function FeaturedRecipe({ fR }) {
+    //
+    // title, summary_main, summary_byline, image_main, totalTime, recipeYield, numIngredients, recipeCategory, suitableForDiet, recipeHeft
+    // 
+    // const [title, setTitle] = useState();
+    // const [summaryMain, setSummaryMain] = useState();
+    // const [summaryByline, setSummaryByline] = useState();
+    // const [imageMain, setImageMain] = useState();
+    // const [totalTime, setTotalTime] = useState();
+    // const [recipeYield, setRecipeYield] = useState();
+    // const [numIngredients, setNumIngredients] = useState();
+    // const [recipeCategory, setRecipeCategory] = useState();
+    // const [suitableForDiet, setSuitableForDiet] = useState();
+    // const [recipeHeft, setRecipeHeft] = useState();
 
+    const loadingState = {
+        title: '',
+        summaryMain: '',
+        summaryByline: 'One second...', 
+        imageMain: '', 
+        totalTime: '', 
+        recipeYield: '', 
+        numIngredients: '', 
+        recipeCategory: '', 
+        suitableForDiet: '',
+        recipeHeft: '',
+    };
 
+    const featRecipeState = fR
+			? {
+                    title: fR.title,
+                    summaryMain: fR.summary.summary_main,
+                    summaryByline: fR.summary.summary_byline,
+                    imageMain: fR.images.image_main,
+                    totalTime: fR.totalTime.totalHours, 
+                    recipeYield: fR.recipeYield,
+                    numIngredients: fR.numIngredients,
+                    recipeCategory: fR.recipeCategory[0],
+                    suitableForDiet: fR.suitableForDiet[0],
+                    recipeHeft: fR.recipeHeft[0],
+			  }
+			: loadingState;
 
-    // expected to get
-    // - tile color
-    // - image, title, desc, info
-    // - tags
-
-    // currently hardcoded!!!!
-    // => image, title, info, desc, tags
+    const [featRec, setFeatRec] = useState(featRecipeState);
 
     return (
         <>
+            {console.log(featRec)}
             <div className={s["featured"]}>
                 <div className={s["featured__visual-div"]} />
                 <div className={s["featured__tags"]}>
