@@ -1,6 +1,12 @@
+import { useState } from 'react';
+
 import s from './FeaturedRecipe.module.scss';
 
-export default function FeaturedRecipe() {
+export default function FeaturedRecipe(props) {
+    // console.log(props);
+
+
+
     // expected to get
     // - tile color
     // - image, title, desc, info

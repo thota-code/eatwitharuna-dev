@@ -22,7 +22,7 @@ export default function SingleRecipe() {
                         <table className={s["recipe__head-main--ingredients-table"]}>
                             <tbody>
                                 <tr className={s["recipe__head-main--ingredients-table-row"]}>
-                                    <td></td>&nbsp;
+                                    {/* <td></td>&nbsp; */}
                                 </tr>
                                 <tr className={s["recipe__head-main--ingredients-table-row"]}>
                                     <td>onion</td>

@@ -6,7 +6,17 @@ import FeaturedRecipe from 'components/FeaturedRecipe/FeaturedRecipe';
 import Footer from 'components/Footer/Footer';
 import SingleRecipe from 'components/SingleRecipe/SingleRecipe';
 
-export default function Home() {
+export async function getStaticProps(ctx) {
+
+  return {
+    props: {
+
+    }
+  }
+}
+
+export default function Home(props) {
+
   return (
     <div className="index">
       <Head>
