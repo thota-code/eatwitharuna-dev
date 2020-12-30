@@ -1,18 +1,49 @@
+import { useState } from 'react';
+
 import s from './SingleRecipe.module.scss';
 
-export default function SingleRecipe() {
-    // HARDCODED!
-    // title, tags, ingredients table, info
+export default function SingleRecipe({ testerRecipe }) {
+    // todo -
+    // functions for light color of times under image
+    // rounding for total hrs
 
     // must receive color!
+    const [currentRecipe, setCurrentRecipe] = useState(testerRecipe);
+    console.log(currentRecipe);
+    // title
+    // recipeCategory, recipeHealth, recipeHeft, suitableForDIet
+    // recipeIngredients, numIngredients
+        // -- array of Ingredient references
+        // -- make separate util for singlerecipe tomorrow
+    // images
+        // image-main, image-2
+    // difficulty !!!! 
+    // totalTime
+        // totalHours, totalMinutes
+    // recipeYield
+    // prepTime
+        // Hours...
+    // cookTime
+        // ...
+    
+    // recipeInstructions - @sanity html / react - PortableText 
+    const { recipeCategory, recipeHeft, suitableForDiet} = currentRecipe;
 
+    const tagsline = () => {
+        let diet = suitableForDiet === 'vegetarian' ? 'veg' : 'non-veg'; // extend for future cases
+        return (
+					<span>
+						{recipeCategory} · {recipeHeft} · {diet}
+					</span>
+				);
+    }
 
     return (
         <div className={s["recipe"]}>
             <div className={s["recipe__head"]}>
                 <div className={s["recipe__head-title-tagsline"]}>
-                    <div className={s["recipe__head-title"]}>big yum shrimp curry</div>
-                    <div className={s["recipe__head-tagsline"]}>meal · heavy · non-veg</div>
+                    <div className={s["recipe__head-title"]}>{currentRecipe.title}</div>
+                    <div className={s["recipe__head-tagsline"]}>{tagsline()}</div>
                 </div>
 
                 <div className={s["recipe__head-main"]}>
@@ -70,12 +101,12 @@ export default function SingleRecipe() {
                         <div className={s["recipe__head-info-time-serves"]}>
                             <div className={s["recipe__head-info--total"]}>
                                 <span className={s["recipe__head-info--total-text"]}>
-                                    total time: <span className="recipe__head-info--total-num">3hr</span>
+                                    total time: <span className="recipe__head-info--total-num">{currentRecipe.totalTime.totalHours}hrs</span>
                                 </span>
                             </div>
                             <div className={s["recipe__head-info--serves"]}>
                                 <span className={s["recipe__head-info--serves-text"]}>
-                                    serves: <span className="recipe__head-info--serves-num">4</span>
+                                    serves: <span className="recipe__head-info--serves-num">{currentRecipe.recipeYield}</span>
                                 </span>
                             </div>
                         </div>
@@ -83,7 +114,7 @@ export default function SingleRecipe() {
                         <div className={s["recipe__head-info-prep-cook"]}>
                             <div className={s["recipe__head-info--prep"]}>
                                 <span className={s["recipe__head-info--prep-text"]}>
-                                    prep time: <span className="recipe__head-info--prep-num">1hr 15min</span>
+                                    prep time: <span className="recipe__head-info--prep-num">{currentRecipe.prepTime.totalHours}h {currentRecipe.prepTime.totalMinutes}m</span>
                                 </span>
                             </div>
                             <div className={s["recipe__head-info--cook"]}>

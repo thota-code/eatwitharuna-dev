@@ -29,6 +29,8 @@ export default function Home({ featuredRecipe }) {
       </Head>
 
       <Navbar />
+            
+      <SingleRecipe testerRecipe={featuredRecipe} />
 
       <main className="main-content">
         <div className="featured-section">
@@ -43,7 +45,7 @@ export default function Home({ featuredRecipe }) {
         <Footer />
       </footer>
 
-      <SingleRecipe />
+
 
     </div>
   )
