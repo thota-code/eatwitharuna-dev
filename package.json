@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sanity/block-content-to-markdown": "0.0.5",
     "@sanity/client": "^2.1.0",
     "next": "10.0.4",
     "react": "17.0.1",

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 
 import s from './SingleRecipe.module.scss';
 import { durationFix } from 'utilities/util';
@@ -17,6 +18,9 @@ export default function SingleRecipe({ cR }) {
 			totalTime,
             recipeIngredients,
             allIng,
+            summary,
+
+            testImageUrl,
 		} = currentRecipe;
 
     const tagsline = () => {
@@ -29,12 +33,32 @@ export default function SingleRecipe({ cR }) {
     }
 
     const ingredientsRender = () => {
-
-    }
+			return (
+				<table className={s["recipe__head-main--ingredients-table"]}>
+					<tbody>
+						<tr className={s["recipe__head-main--ingredients-table-row"]}>
+							<td></td>&nbsp;
+						</tr>
+						{allIng.map((ing, idx) => {
+							return (
+								<tr
+									key={idx}
+									className={s["recipe__head-main--ingredients-table-row"]}
+								>
+									<td>{ing.ingredient.ingName}</td>
+									<td>
+										{ing.amount} {ing.measurement}
+									</td>
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
+			);
+		}
 
     return (
-        <div className={s["recipe"]}>
-                {ingredientsRender()}
+			<div className={s["recipe"]}>
 				<div className={s["recipe__head"]}>
 					<div className={s["recipe__head-title-tagsline"]}>
 						<div className={s["recipe__head-title"]}>{currentRecipe.title}</div>
@@ -47,51 +71,27 @@ export default function SingleRecipe({ cR }) {
 								ingredients
 							</span>
 
-							<table className={s["recipe__head-main--ingredients-table"]}>
-								<tbody>
-									<tr className={s["recipe__head-main--ingredients-table-row"]}>
-										{/* <td></td>&nbsp; */}
-									</tr>
-									<tr className={s["recipe__head-main--ingredients-table-row"]}>
-										<td>onion</td>
-										<td>1 cup</td>
-									</tr>
-									<tr className={s["recipe__head-main--ingredients-table-row"]}>
-										<td>green onion</td>
-										<td>twelve</td>
-									</tr>
-									<tr className={s["recipe__head-main--ingredients-table-row"]}>
-										<td>cilantro</td>
-										<td>1/2 bunch</td>
-									</tr>
-									<tr className={s["recipe__head-main--ingredients-table-row"]}>
-										<td>cinnamon stick</td>
-										<td>two small</td>
-									</tr>
-									<tr className={s["recipe__head-main--ingredients-table-row"]}>
-										<td>shrimp</td>
-										<td>2 lbs</td>
-									</tr>
-									<tr className={s["recipe__head-main--ingredients-table-row"]}>
-										<td>coriander powder</td>
-										<td>1 tsp</td>
-									</tr>
-									<tr className={s["recipe__head-main--ingredients-table-row"]}>
-										<td>ginger garlic paste</td>
-										<td>1 tbsp</td>
-									</tr>
-								</tbody>
-							</table>
+							{ingredientsRender()}
+						</div>
+
+						<div className={s["recipe__head-main--summary"]}>
+							<span className={s["recipe__head-main--summary-main"]}>
+								{summary.summary_main}
+							</span>
+							<span className={s["recipe__head-main--summary-byline"]}>
+								{summary.summary_byline}
+							</span>
 						</div>
 					</div>
 
 					<div className={s["recipe__head-diff-image-info"]}>
 						<div className={s["recipe__head-diff"]}>
-							{/* bar, progress bar? */}
+							{currentRecipe.difficulty}
 						</div>
 
 						<div className={s["recipe__head-image"]}>
-							<img src="" alt="" className={s["recipe__head-image-img"]} />
+                            {/* TESTIMAGEURL NOW! */}
+							<Image src={testImageUrl} alt="" className={s["recipe__head-image-img"]} width={550} height={550} layout="responsive"/>
 						</div>
 
 						<div className={s["recipe__head-info"]}>
@@ -143,3 +143,36 @@ export default function SingleRecipe({ cR }) {
 			</div>
 		);
 }
+
+
+						// <tr className={s["recipe__head-main--ingredients-table-row"]}>
+						// 	{/* <td></td>&nbsp; */}
+						// </tr>
+						// <tr className={s["recipe__head-main--ingredients-table-row"]}>
+						// 	<td>onion</td>
+						// 	<td>1 cup</td>
+						// </tr>
+						// <tr className={s["recipe__head-main--ingredients-table-row"]}>
+						// 	<td>green onion</td>
+						// 	<td>twelve</td>
+						// </tr>
+						// <tr className={s["recipe__head-main--ingredients-table-row"]}>
+						// 	<td>cilantro</td>
+						// 	<td>1/2 bunch</td>
+						// </tr>
+						// <tr className={s["recipe__head-main--ingredients-table-row"]}>
+						// 	<td>cinnamon stick</td>
+						// 	<td>two small</td>
+						// </tr>
+						// <tr className={s["recipe__head-main--ingredients-table-row"]}>
+						// 	<td>shrimp</td>
+						// 	<td>2 lbs</td>
+						// </tr>
+						// <tr className={s["recipe__head-main--ingredients-table-row"]}>
+						// 	<td>coriander powder</td>
+						// 	<td>1 tsp</td>
+						// </tr>
+						// <tr className={s["recipe__head-main--ingredients-table-row"]}>
+						// 	<td>ginger garlic paste</td>
+						// 	<td>1 tbsp</td>
+						// </tr>

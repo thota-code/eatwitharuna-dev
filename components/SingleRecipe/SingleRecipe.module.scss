@@ -41,6 +41,8 @@
 
         &-main {
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
             background: linear-gradient(to right, $main-green, 95%, $main-light 5%);
 
@@ -75,6 +77,42 @@
                     }
                 }
             }
+
+            &--summary {
+                // border: 1px solid black;
+
+                font-family: "DM Mono", monospace;
+                font-size: 3rem;
+                font-weight: 400;
+                line-height: 3rem;
+                color: $main-light;
+
+                margin-bottom: 3rem;
+                margin-left: 3rem;
+
+                max-width: 60rem;
+                min-height: 10rem;
+
+
+                display: flex;
+                flex-direction: column;
+
+                &-main {
+
+                }
+
+                &-byline {
+                    margin-top: 2rem;
+                    font-weight: bold;
+                    color: $main-dark;
+                    transition: all .2s;
+                    cursor: default;
+
+                    &:hover {
+                        color: $main-light;
+                    }
+                }
+            }
         }
 
         &-diff-image-info {
@@ -89,13 +127,20 @@
         }
 
         &-diff {
-            // diff
+            min-height: 4rem;
+            max-width: 4rem;
+            display: flex;
+            justify-content: center;
+            margin-top: -4rem;
+            margin-left: auto;
         }
 
         &-image {
-            background-color: $main-dark;
-            height: 55rem;
-            width: 55rem;
+            // background-color: $main-dark;
+            min-height: 55rem;
+            max-height: 55rem;
+            min-width: 55rem;
+            max-width: 55rem;
         }
 
         &-info {

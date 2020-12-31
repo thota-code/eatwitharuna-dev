@@ -1,4 +1,6 @@
 // import { useRouter } from 'next/router';
+import toMarkdown from '@sanity/block-content-to-markdown';
+import s from "styles/recipe.module.scss";
 
 import Navbar from 'components/Navbar/Navbar';
 import SingleRecipe from 'components/SingleRecipe/SingleRecipe';
@@ -31,11 +33,33 @@ export async function getStaticProps({ params }) {
 }
 
 const Recipe = ({ currentRecipe }) => {
+    
+    const instructionSerialize = () => {
+        const instructions = currentRecipe[0].recipeInstructions;
+
+        const serializers = {
+            types: {
+                code: (props) =>
+                    "```" + props.node.language + "\n" + props.node.code + "\n```",
+            },
+        };
+
+        const text = toMarkdown(instructions, {serializers});
+
+        return (
+            <>  
+                <div className={s["recipeInstructions"]}>
+                    {text}
+                </div>
+            </>
+        )
+    }
 
     return (
         <>
             <Navbar />
             <SingleRecipe cR={currentRecipe[0]} />
+            {instructionSerialize()}
         </>
     )
 }
