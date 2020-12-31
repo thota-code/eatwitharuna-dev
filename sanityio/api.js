@@ -7,8 +7,8 @@ export async function getAllFeaturableRecipes(p) {
 
     const res = await client
         .fetch(query, params)
-        // .then(res => console.log(res))
+        .catch(err => console.log({ err }))
 
-    // console.log(res);
     return res;
 };
+

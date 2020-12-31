@@ -25,3 +25,4 @@ todo
 - total time in featuredRecipe, function to round up / down based on minutes
 - assigned color functions / option in SANITYIO for colors - featured & single 
 - difficulty on schema! 
+- api for ingredients to have caloric values

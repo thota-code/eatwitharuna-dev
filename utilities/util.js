@@ -13,16 +13,20 @@ import { getAllFeaturableRecipes } from 'sanityio/api';
 
 export async function featuredRecipeUtil() {
     const allRecipes = await getAllFeaturableRecipes()
-        // .then(data => console.log(data));
 
-    console.log('--util--')
-    console.log(allRecipes);
     let currL = allRecipes.length;
     let randIdx = generateRandomInteger(0, currL-1);
-    console.log('randIdx: ', randIdx);
     let featuredRecipe = allRecipes[randIdx];
-    console.log('featuredRecipe w/o var', allRecipes[randIdx]);
-    // console.log(featuredRecipe);
 
     return featuredRecipe;
+}
+
+export function toHourRound(hr, min) {
+    // returns a number, rounded hours
+    min > 30 ? hr++ : hr;
+    return hr;
+}
+
+export function durationFix(hr, min) {
+    return `${hr}h ${min ? `${min}m` : ''}`
 }

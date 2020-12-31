@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import s from './FeaturedRecipe.module.scss';
+import { toHourRound } from "utilities/util";
 
 export default function FeaturedRecipe({ fR }) {
     //
@@ -35,20 +36,20 @@ export default function FeaturedRecipe({ fR }) {
         summaryMain: fR.summary.summary_main,
         summaryByline: fR.summary.summary_byline,
         imageMain: fR.images.image_main,
-        totalTime: fR.totalTime.totalHours,
+        totalTime: toHourRound(fR.totalTime.totalHours, fR.totalTime.totalMinutes),
         recipeYield: fR.recipeYield,
         numIngredients: fR.numIngredients,
         recipeCategory: fR.recipeCategory[0],
         suitableForDiet: fR.suitableForDiet[0],
         recipeHeft: fR.recipeHeft[0],
-    };
-
-    const [featRec, setFeatRec] = useState(featRecipeState ? featRecipeState : loadingState);
-    const title = featRec.title;
+	};
+	
+	const [featRec, setFeatRec] = useState(featRecipeState ? featRecipeState : loadingState);
+	const title = featRec.title;
+	// not a fan of this ^ implementation
 
     function titleLastCap() {
         const splitTitle = title.split(' ');
-        console.log(splitTitle[-1]);
         return (
             <>
                 {splitTitle.slice(0, -1).join(' ')}

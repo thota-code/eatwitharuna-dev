@@ -110,13 +110,15 @@
                 margin: 1rem;
                 line-height: 3.5rem;
             }
+
+            &--total-text {
+            }
             
             &--total-num,
             &--serves-num,
             &--prep-num,
-            &--cook-num {
-                // color: $main-light;
-                font-size: 10rem;
+            &--cook-num  {
+                color: $main-light !important;
             }
 
         }
