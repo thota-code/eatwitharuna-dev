@@ -3,30 +3,11 @@ import { useState } from 'react';
 import s from './SingleRecipe.module.scss';
 import { durationFix } from 'utilities/util';
 
-export default function SingleRecipe({ testerRecipe }) {
+export default function SingleRecipe({ cR }) {
     // todo -
     // functions for light color of times under image
-    // rounding for total hrs
 
-    // must receive color!
-    const [currentRecipe, setCurrentRecipe] = useState(testerRecipe);
-    // title
-    // recipeCategory, recipeHealth, recipeHeft, suitableForDIet
-    // recipeIngredients, numIngredients
-        // -- array of Ingredient references
-        // -- make separate util for singlerecipe tomorrow
-    // images
-        // image-main, image-2
-    // difficulty !!!! 
-    // totalTime
-        // totalHours, totalMinutes
-    // recipeYield
-    // prepTime
-        // Hours...
-    // cookTime
-        // ...
-    
-    // recipeInstructions - @sanity html / react - PortableText 
+    const [currentRecipe, setCurrentRecipe] = useState(cR);
     const { recipeCategory, recipeHeft, suitableForDiet, prepTime, cookTime, totalTime } = currentRecipe;
 
     const tagsline = () => {

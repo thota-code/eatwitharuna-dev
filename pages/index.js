@@ -13,7 +13,7 @@ export async function getStaticProps(ctx) {
   
   return {
     props: {
-      featuredRecipe: featuredRecipe,
+      featuredRecipe,
     }
   }
 }
@@ -30,15 +30,13 @@ export default function Home({ featuredRecipe }) {
 
       <Navbar />
             
-      <SingleRecipe testerRecipe={featuredRecipe} />
+      {/* <SingleRecipe testerRecipe={featuredRecipe} /> */}
 
       <main className="main-content">
         <div className="featured-section">
           <FeaturedRecipe fR={featuredRecipe} />
-          {/* <FeaturedRecipe /> */}
         </div>
 
-        {/* more stuff */}
       </main>
 
       <footer className="footer">
