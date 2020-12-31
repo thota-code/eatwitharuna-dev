@@ -4,20 +4,6 @@ import s from './FeaturedRecipe.module.scss';
 import { toHourRound } from "utilities/util";
 
 export default function FeaturedRecipe({ fR }) {
-    //
-    // title, summary_main, summary_byline, image_main, totalTime, recipeYield, numIngredients, recipeCategory, suitableForDiet, recipeHeft
-    // 
-    // const [title, setTitle] = useState();
-    // const [summaryMain, setSummaryMain] = useState();
-    // const [summaryByline, setSummaryByline] = useState();
-    // const [imageMain, setImageMain] = useState();
-    // const [totalTime, setTotalTime] = useState();
-    // const [recipeYield, setRecipeYield] = useState();
-    // const [numIngredients, setNumIngredients] = useState();
-    // const [recipeCategory, setRecipeCategory] = useState();
-    // const [suitableForDiet, setSuitableForDiet] = useState();
-    // const [recipeHeft, setRecipeHeft] = useState();
-
     const loadingState = {
         title: '',
         summaryMain: '',
@@ -31,18 +17,23 @@ export default function FeaturedRecipe({ fR }) {
         recipeHeft: '',
     };
 
-    const featRecipeState = {
-        title: fR.title,
-        summaryMain: fR.summary.summary_main,
-        summaryByline: fR.summary.summary_byline,
-        imageMain: fR.images.image_main,
-        totalTime: toHourRound(fR.totalTime.totalHours, fR.totalTime.totalMinutes),
-        recipeYield: fR.recipeYield,
-        numIngredients: fR.numIngredients,
-        recipeCategory: fR.recipeCategory[0],
-        suitableForDiet: fR.suitableForDiet[0],
-        recipeHeft: fR.recipeHeft[0],
-	};
+    const featRecipeState = fR
+			? {
+					title: fR.title,
+					summaryMain: fR.summary.summary_main,
+					summaryByline: fR.summary.summary_byline,
+					imageMain: fR.images.image_main,
+					totalTime: toHourRound(
+						fR.totalTime.totalHours,
+						fR.totalTime.totalMinutes
+					),
+					recipeYield: fR.recipeYield,
+					numIngredients: fR.numIngredients,
+					recipeCategory: fR.recipeCategory[0],
+					suitableForDiet: fR.suitableForDiet[0],
+					recipeHeft: fR.recipeHeft[0],
+			  }
+			: null;
 	
 	const [featRec, setFeatRec] = useState(featRecipeState ? featRecipeState : loadingState);
 	const title = featRec.title;

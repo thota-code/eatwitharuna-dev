@@ -26,13 +26,12 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             currentRecipe
-
         }
     }
 }
 
 const Recipe = ({ currentRecipe }) => {
-    console.log(currentRecipe[0]);
+
     return (
         <>
             <Navbar />

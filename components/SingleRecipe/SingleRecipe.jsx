@@ -8,7 +8,16 @@ export default function SingleRecipe({ cR }) {
     // functions for light color of times under image
 
     const [currentRecipe, setCurrentRecipe] = useState(cR);
-    const { recipeCategory, recipeHeft, suitableForDiet, prepTime, cookTime, totalTime } = currentRecipe;
+    const {
+			recipeCategory,
+			recipeHeft,
+			suitableForDiet,
+			prepTime,
+			cookTime,
+			totalTime,
+            recipeIngredients,
+            allIng,
+		} = currentRecipe;
 
     const tagsline = () => {
         let diet = suitableForDiet === 'vegetarian' ? 'veg' : 'non-veg'; // extend for future cases
@@ -20,11 +29,12 @@ export default function SingleRecipe({ cR }) {
     }
 
     const ingredientsRender = () => {
-        
+
     }
 
     return (
-			<div className={s["recipe"]}>
+        <div className={s["recipe"]}>
+                {ingredientsRender()}
 				<div className={s["recipe__head"]}>
 					<div className={s["recipe__head-title-tagsline"]}>
 						<div className={s["recipe__head-title"]}>{currentRecipe.title}</div>

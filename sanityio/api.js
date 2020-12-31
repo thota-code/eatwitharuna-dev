@@ -25,7 +25,7 @@ export async function getAllRecipes() {
 };
 
 export async function getSingleRecipe(slug) {
-    const query = "*[_type == 'recipe' && slug.current == $slug]";
+    const query = "*[_type == 'recipe' && slug.current == $slug]{ ..., 'allIng': recipeIngredients[]{measurement, amount, ingredient->}}";
     const params = {slug};
 
     const res = await client
