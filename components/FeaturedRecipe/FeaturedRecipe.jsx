@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import s from './FeaturedRecipe.module.scss';
-import { toHourRound } from "utilities/util";
+import { featuredRecipeUtil, toHourRound } from "utilities/util";
 
-export default function FeaturedRecipe({ fR }) {
+const FeaturedRecipe = React.forwardRef(({ fR, onClick, href }, ref) => {
     const loadingState = {
         title: '',
         summaryMain: '',
@@ -47,10 +47,16 @@ export default function FeaturedRecipe({ fR }) {
                 <span className={s['featured__title-text--last']}> {splitTitle.slice(-1).pop()}</span>
             </> 
         )
-    }
+	}
+	
 
     return (
-			<>
+			<a
+				ref={ref}
+				href={href}
+				onClick={onClick}
+				className={s["a-Featured"]}
+			>
 				<div className={s["featured"]}>
 					<div className={s["featured__visual-div"]} />
 					<div className={s["featured__tags"]}>
@@ -87,12 +93,12 @@ export default function FeaturedRecipe({ fR }) {
 						</div>
 					</div>
 
-					<div className={s["featured__next"]}>
-						<span className={s["featured__next-text"]}>next ></span>
-						{/* svg here */}
-					</div>
-
 					<div className={s["featured__info"]}>
+						<div className={s["featured__next"]}>
+							<span className={s["featured__next-text"]}>next</span>
+							{/* svg here */}
+						</div>
+
 						<div className={s["featured__info-serves"]}>
 							<span className={s["featured__info-serves--text"]}>serves:</span>
 							<span className={s["featured__info-serves--num"]}>
@@ -117,6 +123,8 @@ export default function FeaturedRecipe({ fR }) {
 						</div>
 					</div>
 				</div>
-			</>
+			</a>
 		);
-}
+});
+
+export default FeaturedRecipe;
