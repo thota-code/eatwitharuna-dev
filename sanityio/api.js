@@ -25,7 +25,10 @@ export async function getAllRecipes() {
 };
 
 export async function getSingleRecipe(slug) {
-    const query = "*[_type == 'recipe' && slug.current == $slug]{ ..., 'allIng': recipeIngredients[]{measurement, amount, ingredient->}}";
+    // const query = "*[_type == 'recipe' && slug.current == $slug]{ ..., 'allIng': recipeIngredients[]{measurement, amount, ingredient->}}";
+
+    // test imageurl
+    const query = "*[_type == 'recipe' && slug.current == $slug]{ ..., 'allIng': recipeIngredients[]{measurement, amount, ingredient->}, 'testImageUrl': images.image_main.asset -> url }";
     const params = {slug};
 
     const res = await client

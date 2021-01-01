@@ -1,10 +1,10 @@
-import Head from 'next/head'
-// import styles from 'styles/Home.module.scss'
+import Head from 'next/head';
+import Link from 'next/link';
 
 import Navbar from 'components/Navbar/Navbar';
 import FeaturedRecipe from 'components/FeaturedRecipe/FeaturedRecipe';
 import Footer from 'components/Footer/Footer';
-import SingleRecipe from 'components/SingleRecipe/SingleRecipe';
+import SingleRecipe from 'components/SingleRecipeCard/SingleRecipeCard';
 
 import { featuredRecipeUtil } from 'utilities/util';
 
@@ -20,6 +20,7 @@ export async function getStaticProps(ctx) {
 
 
 export default function Home({ featuredRecipe }) {
+  const recipeHref = '/recipe/' + featuredRecipe.slug.current;
 
   return (
     <div className="index">
@@ -29,12 +30,12 @@ export default function Home({ featuredRecipe }) {
       </Head>
 
       <Navbar />
-            
-      {/* <SingleRecipe testerRecipe={featuredRecipe} /> */}
 
       <main className="main-content">
         <div className="featured-section">
-          <FeaturedRecipe fR={featuredRecipe} />
+          <Link href={recipeHref} passHref>
+              <FeaturedRecipe fR={featuredRecipe} />
+          </Link>
         </div>
 
       </main>

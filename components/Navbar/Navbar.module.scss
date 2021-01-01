@@ -16,7 +16,7 @@
     align-items: flex-end;
 
     &__logo {
-        // border: 1px solid black;
+        border-left: 9px dotted $main-light;
 
         font-family: 'DM Sans', sans-serif;
         font-size: 4.5rem;
@@ -29,7 +29,28 @@
         flex: 0;
         align-self: stretch;
         // width: 20rem;
-        margin-left: 1rem;
+        // margin-left: 1rem;
+        padding-left: 1rem;
+
+        transition: all .4s;
+
+        &-demo {
+            font-size: 1.5rem;
+            font-family: 'DM Mono', monospace;
+            font-style: normal;
+            font-weight: 700;
+
+            position: relative;
+            bottom: 12rem;
+            right: 12rem;
+            color: $main-light;
+        }
+
+        &:hover {
+            border-left: 9px dotted $main-dark;
+            cursor: pointer;
+            
+        }
     }
 
     &__func {
@@ -40,13 +61,40 @@
         font-weight: 400;
         font-style: italic;
 
+
         
         display: flex;
         width: 45rem;
         justify-content: space-evenly;
         margin-left: 3.5rem;
 
-        transform: translateY(0.8rem);
+        transform: translateY(1rem);
+        min-height: 9rem;
+
+
+        
+        &-search,
+        &-recipes,
+        &-pantry {
+            text-decoration: none;
+            color: $main-dark;
+            transition: all .2s;
+
+            border-top: 5px dotted $main-light;
+            margin-top: auto;
+            // padding: .4rem;
+
+            
+        }
+        
+        &-search, 
+        &-recipes, 
+        &-pantry {
+            &:hover {
+                border-top: 5px dotted $main-dark;
+            }
+        }
+
     }
 
 
@@ -67,10 +115,33 @@
         margin-left: auto;
 
         transform: translateY(0.8rem);
-
+        
         &-login {
+            transition: all .2s;
             font-style: normal;
             text-decoration: underline;
+            color: $main-dark;
+            border-top: 3px dotted $main-light;
+
+
+            &:hover {
+                font-style: italic;
+                text-decoration-color: $main-light;
+                border-top: 3px dotted $main-dark;
+            }
+        }
+
+        &-about,
+        &-socials {
+            text-decoration: none;
+            color: $main-dark;
+            transition: all .3s;
+
+            border-top: 3px dotted $main-light;
+            
+            &:hover {
+                border-top: 3px dotted $main-dark;
+            }
         }
     }
 

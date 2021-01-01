@@ -1,6 +1,12 @@
 @import 'styles/variables.scss';
 
+.a-Featured {
+    text-decoration: none;
+    color: $main-dark;
+}
+
 .featured {
+
     background: linear-gradient($med-blue 60%, $main-light 40%);
     margin: 0rem 7rem 8rem;
     min-height: 40rem;
@@ -103,17 +109,30 @@
     }
 
     &__next {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
 
-        // margin-left: auto;
-        position: absolute;
-        right: 12rem;
-        top: 28rem;
+        // position: relative;
+        // bottom: 20rem;
+        // left: 52rem;
+        font-family: 'DM Sans', sans-serif;
+        color: $main-dark;
+        
+        transition: all .2s;
+        margin-left: auto;
+        margin-bottom: auto;
+
+        position: relative;
+        bottom: 10rem;
+        
+        cursor: pointer;
+
+        &:hover {
+            color: $main-light;
+        }
     }
 
     &__info { // for future -> div each for text / nums, center along axes.
         // border: 1px solid black;
-
         font-size: 2rem;
 
         
@@ -128,6 +147,7 @@
         bottom: 5rem;
 
         padding: 2rem;
+        
 
         &-serves--text,
         &-ing--text,
