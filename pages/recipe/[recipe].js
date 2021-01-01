@@ -1,12 +1,13 @@
 // import { useRouter } from 'next/router';
-import toMarkdown from '@sanity/block-content-to-markdown';
 import s from "styles/recipe.module.scss";
 
+
+import { numToWord } from 'utilities/util';
+
 import Navbar from 'components/Navbar/Navbar';
-import SingleRecipe from 'components/SingleRecipe/SingleRecipe';
+import SingleRecipe from 'components/SingleRecipeCard/SingleRecipeCard';
 
 import { getAllRecipes, getSingleRecipe } from 'sanityio/api';
-
 
 
 export async function getStaticPaths() {
@@ -33,27 +34,25 @@ export async function getStaticProps({ params }) {
 }
 
 const Recipe = ({ currentRecipe }) => {
-    
     const instructionSerialize = () => {
-        const instructions = currentRecipe[0].recipeInstructions;
-
-        const serializers = {
-            types: {
-                code: (props) =>
-                    "```" + props.node.language + "\n" + props.node.code + "\n```",
-            },
-        };
-
-        const text = toMarkdown(instructions, {serializers});
+        const recInst = currentRecipe[0].recipeInstructions;
+        const inst = recInst.map(instObj => {
+            return instObj.children[0].text;
+        });
 
         return (
-            <>  
-                <div className={s["recipeInstructions"]}>
-                    {text}
-                </div>
-            </>
-        )
-    }
+            <div className={s["recipeInstructions"]}>
+                {inst.map((inst, idx) => {
+                    return (
+                        <div key={idx} className={s["recipeInstructions__step"]}>
+                            <span className={s["recipeInstructions__step--number"]}>{numToWord(idx + 1)}</span>
+                            <span className={s["recipeInstructions__step--text"]}>{inst}</span>
+                        </div>
+                    )
+                })}
+            </div>
+        );
+    };
 
     return (
         <>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Navbar from 'components/Navbar/Navbar';
 import FeaturedRecipe from 'components/FeaturedRecipe/FeaturedRecipe';
 import Footer from 'components/Footer/Footer';
-import SingleRecipe from 'components/SingleRecipe/SingleRecipe';
+import SingleRecipe from 'components/SingleRecipeCard/SingleRecipeCard';
 
 import { featuredRecipeUtil } from 'utilities/util';
 
@@ -30,8 +30,6 @@ export default function Home({ featuredRecipe }) {
       </Head>
 
       <Navbar />
-            
-      {/* <SingleRecipe testerRecipe={featuredRecipe} /> */}
 
       <main className="main-content">
         <div className="featured-section">

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
+import ProgressBar from 'react-customizable-progressbar';
 
 import s from './SingleRecipe.module.scss';
 import { durationFix } from 'utilities/util';
@@ -18,7 +19,9 @@ export default function SingleRecipe({ cR }) {
 			totalTime,
             recipeIngredients,
             allIng,
-            summary,
+			summary,
+			difficulty,
+
 
             testImageUrl,
 		} = currentRecipe;
@@ -57,6 +60,13 @@ export default function SingleRecipe({ cR }) {
 			);
 		}
 
+	const difficultyBar = () => {
+
+		// return (
+
+		// );
+	};
+
     return (
 			<div className={s["recipe"]}>
 				<div className={s["recipe__head"]}>
@@ -86,12 +96,19 @@ export default function SingleRecipe({ cR }) {
 
 					<div className={s["recipe__head-diff-image-info"]}>
 						<div className={s["recipe__head-diff"]}>
-							{currentRecipe.difficulty}
+							{difficultyBar()}
 						</div>
 
 						<div className={s["recipe__head-image"]}>
-                            {/* TESTIMAGEURL NOW! */}
-							<Image src={testImageUrl} alt="" className={s["recipe__head-image-img"]} width={550} height={550} layout="responsive"/>
+							{/* TESTIMAGEURL NOW! */}
+							<Image
+								src={testImageUrl}
+								alt=""
+								className={s["recipe__head-image-img"]}
+								width={550}
+								height={550}
+								layout="responsive"
+							/>
 						</div>
 
 						<div className={s["recipe__head-info"]}>
