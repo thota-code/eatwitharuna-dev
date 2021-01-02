@@ -80,7 +80,7 @@ JAN 2nd -
     index css grid, sticky footer
     MORE RECIPES COMPONENT
 
-    ? -> mehendi, images
+    ? -> mehendi, auth completion (callback, login page css grid)
 JAN 3rd -
     SEARCH
     SANITY DATA LOAD 
@@ -88,6 +88,7 @@ JAN 3rd -
 
     ? -> PANTRY, IMAGES
 JAN 4th -
+    PANTRY
     HOSTING
     RESUME 
     a/A
