@@ -40,10 +40,10 @@
         background-color: $main-green;
 
         transition: all .5s;
-        border: 1px solid $main-light;
+        border: 2px solid $main-light;
         
         &:hover {
-            border: 1px solid $dark-blue;
+            border: 2px solid $dark-blue;
         }
 
         &-instructions {
@@ -60,25 +60,60 @@
             color: $main-light;
         }
 
-        &-input {
-            font-family: 'DM Mono', monospace;
-            height: 8rem;
-            width: 50rem;
+        &-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
-            text-align: center;
-
-            background-color: $main-light;
-            border: none;
-            border: 3px solid $main-green;
-            transition: all .2s;
-
-
-            &:focus {
-                outline: none;
+            &--input {
+                font-family: 'DM Mono', monospace;
+                height: 8rem;
+                width: 50rem;
+    
+                text-align: center;
+    
+                background-color: $main-light;
                 border: none;
-                border: 3px solid $dark-blue;
+                border: 3px solid $main-green;
+                transition: all .2s;
+    
+    
+                &:focus {
+                    outline: none;
+                    border: none;
+                    border: 3px solid $dark-blue;
+                }
+            }
+
+            &--submit {
+                border: none;
+
+                background-color: $main-green;
+
+                font-family: 'DM Sans', sans-serif;
+                color: $main-dark;
+                font-size: 5rem;
+                text-align: center;
+
+                transition: all .3s;
+
+                &:focus {
+                    outline: none;
+                    transform: translateX(1rem);
+                }
+
+                &:active {
+                    outline: none;
+                    border: none;
+                }
+
+                &:hover {
+                    color: $main-light;
+                }
             }
         }
+
     }
 
 

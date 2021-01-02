@@ -116,7 +116,8 @@
 
         transform: translateY(0.8rem);
         
-        &-login {
+        &-login,
+        &-saved {
             transition: all .2s;
             font-style: normal;
             text-decoration: underline;
@@ -132,7 +133,8 @@
         }
 
         &-about,
-        &-socials {
+        &-socials,
+        &-logout {
             text-decoration: none;
             color: $main-dark;
             transition: all .3s;
