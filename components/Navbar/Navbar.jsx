@@ -1,8 +1,27 @@
 import s from './Navbar.module.scss';
 import Link from 'next/link';
 
-export default function Navbar({ username }) {
+import { useUser } from 'utilities/hooks';
 
+export default function Navbar({ username }) {
+    const user = useUser();
+
+    const loggedInJoin = () => {
+        return user ? (
+					<>
+						<Link href="/">
+							<a className={s["nav__social-saved"]}>saved</a>
+						</Link>
+						<Link href="/api/auth/logout">
+							<a className={s["nav__social-logout"]}>logout</a>
+						</Link>
+					</>
+				) : (
+					<Link href="/login">
+						<a className={s["nav__social-login"]}>join</a>
+					</Link>
+				);
+    };
 
     return (
         <>
@@ -28,9 +47,7 @@ export default function Navbar({ username }) {
                 </div>
 
                 <div className={s["nav__social"]}>
-                    <Link href="/login"> 
-                        <a className={s["nav__social-login"]}>register</a> 
-                    </Link>
+                    {loggedInJoin()}
                     <Link href="/about"> 
                         <a className={s["nav__social-about"]}>about</a> 
                     </Link>

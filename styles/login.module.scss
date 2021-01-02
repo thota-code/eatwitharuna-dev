@@ -1,0 +1,120 @@
+@import 'styles/variables.scss';
+
+.login {
+    display: flex;
+    flex-direction: column;
+
+    
+    width: 100rem;
+    height: 60rem;
+    
+    justify-content: center;
+    align-items: center;
+    
+    margin: auto;
+    
+
+
+    &-text {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 4rem;
+
+        color: $main-green;
+        margin-right: auto;
+
+        position: relative;
+        left: 12rem;
+    }
+
+    &__main {
+
+        width: 80%;
+        height: 70%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 1rem;
+        background-color: $main-green;
+
+        transition: all .5s;
+        border: 2px solid $main-light;
+        
+        &:hover {
+            border: 2px solid $dark-blue;
+        }
+
+        &-instructions {
+            color: $main-light;
+            font-size: 1.5rem;
+
+            font-family: 'DM Mono', monospace;
+            font-weight: normal;
+
+        }
+
+        &-field {
+            font-size: 3rem;
+            color: $main-light;
+        }
+
+        &-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &--input {
+                font-family: 'DM Mono', monospace;
+                height: 8rem;
+                width: 50rem;
+    
+                text-align: center;
+    
+                background-color: $main-light;
+                border: none;
+                border: 3px solid $main-green;
+                transition: all .2s;
+    
+    
+                &:focus {
+                    outline: none;
+                    border: none;
+                    border: 3px solid $dark-blue;
+                }
+            }
+
+            &--submit {
+                border: none;
+
+                background-color: $main-green;
+
+                font-family: 'DM Sans', sans-serif;
+                color: $main-dark;
+                font-size: 5rem;
+                text-align: center;
+
+                transition: all .3s;
+
+                &:focus {
+                    outline: none;
+                    transform: translateX(1rem);
+                }
+
+                &:active {
+                    outline: none;
+                    border: none;
+                }
+
+                &:hover {
+                    color: $main-light;
+                }
+            }
+        }
+
+    }
+
+
+}
