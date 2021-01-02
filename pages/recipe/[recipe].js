@@ -1,11 +1,11 @@
 // import { useRouter } from 'next/router';
 import s from "styles/recipe.module.scss";
 
-
 import { numToWord } from 'utilities/util';
 
 import Navbar from 'components/Navbar/Navbar';
-import SingleRecipe from 'components/SingleRecipeCard/SingleRecipeCard';
+import SingleRecipeCard from 'components/SingleRecipeCard/SingleRecipeCard';
+import Footer from 'components/Footer/Footer';
 
 import { getAllRecipes, getSingleRecipe } from 'sanityio/api';
 
@@ -55,12 +55,22 @@ const Recipe = ({ currentRecipe }) => {
     };
 
     return (
-        <>
-            <Navbar />
-            <SingleRecipe cR={currentRecipe[0]} />
-            {instructionSerialize()}
-        </>
-    )
+			<div className={s["recipe"]}>
+				<Navbar className={s["recipe__nav"]} />
+
+				<main className={s["recipe__main"]}>
+					<SingleRecipeCard
+						className={s["recipe__main--card"]}
+						cR={currentRecipe[0]}
+					/>
+					{instructionSerialize()}
+				</main>
+
+				<footer className={s["recipe__footer"]}>
+					<Footer />
+				</footer>
+			</div>
+		);
 }
 
 export default Recipe;

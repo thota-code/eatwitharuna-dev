@@ -1,0 +1,28 @@
+.index {
+    // border: 1px yellow solid;
+
+    
+    display: grid;
+    grid-template-rows: 1fr minmax(20rem, 5fr) 1fr;
+    grid-template-areas: 
+        "navbar"
+        "main"
+        "footer";
+    row-gap: 2rem;
+    // height: 100vh;
+
+    &__nav {
+        grid-area: navbar;
+        margin-bottom: auto;
+    }
+
+    &__main {
+        grid-area: main;
+
+    }
+
+    &__footer {
+        grid-area: footer;
+        margin-top: auto;
+    }
+}
