@@ -6,5 +6,15 @@
     display: grid;
     grid-template-rows: 1fr minmax(20rem, 5fr) 1fr;
 
+    &__nav {
+        margin-bottom: auto;
+    }
 
+    &__main {
+
+    }
+
+    &__footer {
+        margin-top: auto;
+    }
 }

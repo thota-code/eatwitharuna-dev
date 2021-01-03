@@ -1,4 +1,4 @@
-// import { useRouter } from 'next/router';
+import Head from 'next/head';
 import s from "styles/recipe.module.scss";
 
 import { numToWord } from 'utilities/util';
@@ -55,21 +55,31 @@ const Recipe = ({ currentRecipe }) => {
     };
 
     return (
-			<div className={s["recipe"]}>
-				<Navbar className={s["recipe__nav"]} />
-
-				<main className={s["recipe__main"]}>
-					<SingleRecipeCard
-						className={s["recipe__main--card"]}
-						cR={currentRecipe[0]}
+			<>
+				<Head>
+					<title>{currentRecipe[0].title}</title>
+					<meta
+						name="viewport"
+						content="initial-scale=1.0, width=device-width"
 					/>
-					{instructionSerialize()}
-				</main>
+				</Head>
 
-				<footer className={s["recipe__footer"]}>
-					<Footer />
-				</footer>
-			</div>
+				<div className={s["recipe"]}>
+					<Navbar className={s["recipe__nav"]} />
+
+					<main className={s["recipe__main"]}>
+						<SingleRecipeCard
+							className={s["recipe__main--card"]}
+							cR={currentRecipe[0]}
+						/>
+						{instructionSerialize()}
+					</main>
+
+					<footer className={s["recipe__footer"]}>
+						<Footer />
+					</footer>
+				</div>
+			</>
 		);
 }
 

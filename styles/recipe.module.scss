@@ -1,6 +1,6 @@
 .recipe {
     display: grid;
-    grid-template-rows: 1fr minmax(20rem, 5fr) 1fr;
+    grid-template-rows: 0.5fr minmax(20rem, 5fr) 1fr;
     grid-template-areas: 
         "navbar"
         "main"
@@ -27,19 +27,22 @@
 
 .recipeInstructions {
     // border: 1px solid black;
+    // background-color: blue;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    margin: 7rem;
+    margin-left: 10rem;
+    margin-right: 25rem;
+    margin-top: 5rem;
     // margin-top: 0rem;
     // padding: 3rem;
 
     &__step {
         display: flex;
         flex-direction: column;
-        margin-bottom: 5rem;
+        margin-bottom: 4rem;
 
         &--number {
             font-family: 'DM Mono', monospace;
@@ -47,6 +50,7 @@
             font-style: italic;
             font-size: 3rem;
             line-height: 3rem;
+            margin-bottom: 1rem;
         }
 
         &--text {

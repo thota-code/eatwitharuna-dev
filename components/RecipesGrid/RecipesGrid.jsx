@@ -11,9 +11,12 @@ import { toHourRound } from 'utilities/util';
 // can be used as suggested recipes, by using same category as single page recipe
 // another option to enable queries to user -> for index page, under featrecipe - before footer / blog
 const RecipeTile = React.forwardRef(({ recipe, href, onClick }, ref) => {
-    const { title, totalTime, images, recipeCategory } = recipe;
+	if (!recipe) return (<div className={s["grid__main-tile-empty"]}></div>);
 
+	const { title, totalTime, images, recipeCategory } = recipe;
+	
     return (
+		<>
 			<a ref={ref} href={href} onClick={onClick} className={s["a-Tile"]}>
 				<div className={s["grid__main-tile"]}>
 					<div className={s["grid__main-tile--image"]}>
@@ -34,29 +37,44 @@ const RecipeTile = React.forwardRef(({ recipe, href, onClick }, ref) => {
 					</div>
 				</div>
 			</a>
-		);
+		</>
+	);
 });
 
 
 const RecipesGrid = ({ recipes, numRecipes=100, miniForm, mainForm }) => {
     const [currRecipes, setCurrRecipes] = useState(recipes);
-    console.log(currRecipes);
+	const gridRender = () => {
+		const grid = [];
+
+		for (let i = 0; i < numRecipes; i++) {
+			let rec = currRecipes[i];
+
+			if (rec) { 
+				grid.push (
+					<Link href={"/recipe/" + rec.slug.current} passHref key={i}>
+						<RecipeTile recipe={rec} />
+					</Link>
+				)
+			} else {
+				grid.push (
+					<RecipeTile key={i} />
+				)
+			} 
+		};
+
+		// grid.map(tile => {return tile});
+		// grid.forEach(tile => {return tile})
+		return (
+			<>
+				{grid.map(tile => {return tile})}
+			</>
+		)
+	};
 
     return (
 			<div className={s["grid"]}>
-                {
-                    currRecipes.slice(0, numRecipes).map((rec, _idx) => {
-                        return (
-                            <Link
-                                href={"/recipe/" + rec.slug.current}
-                                passHref
-                                key={_idx}
-                            >
-                                <RecipeTile recipe={rec} />
-                            </Link>
-                    );
-                    })
-                }
+                {gridRender()}
 			</div>
 		);
 }

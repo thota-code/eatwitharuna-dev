@@ -37,3 +37,11 @@ export async function getSingleRecipe(slug) {
 
     return res;
 };
+
+export async function formQuery(query, params) {
+    const res = await client
+        .fetch(query, params)
+        .catch(err => console.log({ err }));
+
+    return res;
+}

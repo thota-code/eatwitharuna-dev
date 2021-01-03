@@ -1,0 +1,25 @@
+@import 'styles/variables.scss';
+
+.gridForm {
+    border: 2px solid black;
+
+    min-height: 30rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
+
+    display: flex;
+    flex-wrap: nowrap;
+    // flex: 0;
+
+    &__form {
+        // border: 1px solid red;
+        // width: 50%;
+        flex: 2;
+    }
+
+    &__text {
+        border: 1px solid black;
+        flex: 1;
+    }
+
+}
