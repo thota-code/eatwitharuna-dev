@@ -16,7 +16,8 @@ export async function getStaticProps(ctx) {
   return {
     props: {
       featuredRecipe,
-    }
+    },
+    revalidate: 40,
   }
 }
 
@@ -44,6 +45,7 @@ export default function Home({ featuredRecipe }) {
           <Link href={recipeHref} passHref>
               <FeaturedRecipe fR={featuredRecipe} />
           </Link>
+
         </div>
 
 

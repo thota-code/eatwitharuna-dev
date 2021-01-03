@@ -24,6 +24,7 @@ todo
 - sanity.js environment variables not working .env.local
 - assigned color functions / option in SANITYIO for colors - featured & single 
 - api for ingredients to have caloric values
+- figure out 'next' featured recipe
 
 dec 31st LEFT - 
 MORE RECIPES COMPONENT

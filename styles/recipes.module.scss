@@ -1,0 +1,10 @@
+@import 'styles/variables.scss';
+
+.recipes {
+    // border: 3px solid yellow;
+
+    display: grid;
+    grid-template-rows: 1fr minmax(20rem, 5fr) 1fr;
+
+
+}
