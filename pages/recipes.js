@@ -2,12 +2,11 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import useSWR from 'swr';
 
 import client from 'sanityio/sanity';
 
-// import { getAllRecipes, formQuery } from 'sanityio/api';
-// import { getAllRecipes } from 'sanityio/api';
-import { getAllRecipes, testQueries } from 'sanityio/api';
+import { getAllRecipes, getCustomRecipes } from 'sanityio/api';
 import { useRouterRefresh } from 'utilities/hooks';
 
 import Navbar from 'components/Navbar/Navbar';
@@ -17,20 +16,18 @@ import GridForm from 'components/RecipesGrid/RecipesGridForm';
 
 import s from 'styles/recipes.module.scss';
 
-// let queryMain = "*[_type=='recipe']";
+let queryMain = "*[_type=='recipe']";
 // let queryMain = "*[_type=='recipe'] | order(numIngredients desc)";
-let queryMain = "*[_type=='recipe' && recipeHealth[0] == 'healthy'] | order(cookTime desc)"
+// let queryMain = "*[_type=='recipe' && recipeHealth[0] == 'healthy'] | order(cookTime desc)"
 // let queryMain = "*[_type=='recipe']";
 // let queryMain = "*[_type=='recipe']";
 
 export async function getServerSideProps(context) {
-	// let recipes = await formQuery(query);
-	// const recipes = await getAllRecipes();
-	// const tester = await testQueries();
-
     const recipes = await client
         .fetch(queryMain)
         .catch((err) => console.log({ err }));
+
+    // const test = await getCustomRecipes(queryMain2);
 
 	return {
 		props: {
@@ -40,17 +37,14 @@ export async function getServerSideProps(context) {
 };
 
 
-const Recipes = ({ recipes, TESTERQUERY }) => {
-    const recRouter = useRouter();
-    const refreshData = () => recRouter.replace(recRouter.asPath);
-    console.log(recipes);
-
+const Recipes = ({ recipes }) => {
     // form handling, on recipes page for props 
     const [search, setSearch] = useState('');
     const [sort, setSort] = useState('');
     const [sortDir, setSortDir] = useState('asc');
     const [filterMain, setFilterMain] = useState('');
     const [filterOptions, setFilterOptions] = useState('');
+    const [gridRecipes, setGridRecipes] = useState(recipes);
     
     const handleSearch = (e) => {
         e.preventDefault();
@@ -80,16 +74,19 @@ const Recipes = ({ recipes, TESTERQUERY }) => {
 
     // query handling
     let baseQuery = "*[_type=='recipe'";
-    let filterQuery = (filterMain && filterOptions) ? ` && ${filterMain}[0] == ${filterOptions}]` : "]";
+    let filterQuery = (filterMain && filterOptions) ? ` && ${filterMain}[0] == '${filterOptions}']` : "]";
     let sortQuery = (sort && sortDir) ? ` | order(${sort} ${sortDir})` : "";
-
     const finalQuery = baseQuery + filterQuery + sortQuery;
-    // console.log('queryMain', queryMain);
-    console.log('finalQuery initial', finalQuery);
-    // console.log('assignment of queryMain', queryMain = finalQuery);
-    console.log('queryMain again', queryMain);
-    // console.log('tester', TESTERQUERY += 1);
-    // ((queryMain !== TESTERQUERY) && (typeof window !== 'undefined')) ? refreshData() : '';
+    
+    const initRec = recipes;
+    const { data, mutate } = useSWR(finalQuery, getCustomRecipes, {initialData: initRec});
+    // setGridRecipes(data);
+    
+    console.log('fq: ', finalQuery);
+    console.log('data: ', data);
+    console.log('gridRecipes: ', gridRecipes);
+    (data !== gridRecipes) ? setGridRecipes(data) : console.log('nothing');
+    // console.log('data == recipes', data === recipes);
 
 
     return (
@@ -102,7 +99,7 @@ const Recipes = ({ recipes, TESTERQUERY }) => {
 					/>
 				</Head>
 
-				<Navbar className={s["recipes__nav"]} />
+				{/* <Navbar className={s["recipes__nav"]} /> */}
 
 				<main className={s["recipes__main"]}>
 					<GridForm
@@ -112,7 +109,7 @@ const Recipes = ({ recipes, TESTERQUERY }) => {
 						handleFilterMain={handleFilterMain}
 						handleFilterOptions={handleFilterOptions}
 					/>
-					<RecipesGrid recipes={recipes} numRecipes={12} />
+					<RecipesGrid recipes={gridRecipes} numRecipes={12} />
 				</main>
 
 				<footer className={s["recipes__footer"]}>

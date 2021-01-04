@@ -40,18 +40,10 @@ export async function getSingleRecipe(slug) {
     return res;
 };
 
-export async function formQuery(query, params) {
-    console.log('api:', query);
-
+export async function getCustomRecipes(query) {
     const res = await client
-        .fetch(query, params)
+        .fetch(query)
         .catch(err => console.log({ err }));
 
     return res;
-}
-
-export async function testQueries(num) {
-    console.log('here');
-
-
 }
