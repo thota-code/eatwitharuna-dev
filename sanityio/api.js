@@ -17,9 +17,11 @@ export async function getAllRecipes() {
     const query = "*[_type == 'recipe']";
     const params = {};
 
+    debugger;
+    
     const res = await client
         .fetch(query)
-        .catch(err => console.log({ err }));
+        .catch(err => console.log({ err }))
 
     return res;
 };
@@ -39,9 +41,17 @@ export async function getSingleRecipe(slug) {
 };
 
 export async function formQuery(query, params) {
+    console.log('api:', query);
+
     const res = await client
         .fetch(query, params)
         .catch(err => console.log({ err }));
 
     return res;
+}
+
+export async function testQueries(num) {
+    console.log('here');
+
+
 }

@@ -1,8 +1,14 @@
 import Link from 'next/link';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
-import { getAllRecipes, formQuery } from 'sanityio/api';
+import client from 'sanityio/sanity';
+
+// import { getAllRecipes, formQuery } from 'sanityio/api';
+// import { getAllRecipes } from 'sanityio/api';
+import { getAllRecipes, testQueries } from 'sanityio/api';
+import { useRouterRefresh } from 'utilities/hooks';
 
 import Navbar from 'components/Navbar/Navbar';
 import Footer from 'components/Footer/Footer';
@@ -11,22 +17,32 @@ import GridForm from 'components/RecipesGrid/RecipesGridForm';
 
 import s from 'styles/recipes.module.scss';
 
-const queryHandler = (search, sort, sortDir, filterMain, filterOptions) => {
-	// query handling
-	let baseQuery = "*[_type=='recipe'";
-	let filterQuery =
-		filterMain && filterOptions
-			? ` && ${filterMain}[0] == ${filterOptions}]`
-			: "]";
-    let sortQuery = sort && sortDir ? ` | order(${sort} ${sortDir})` : "";
-    
-    const finalQuery = baseQuery + filterQuery + sortQuery;
-    console.log(finalQuery);
+// let queryMain = "*[_type=='recipe']";
+let queryMain = "*[_type=='recipe'] | order(numIngredients desc)";
+// let queryMain = "*[_type=='recipe']";
+// let queryMain = "*[_type=='recipe']";
 
-    return finalQuery;
-}
+export async function getServerSideProps(context) {
+	// let recipes = await formQuery(query);
+	// const recipes = await getAllRecipes();
+	// const tester = await testQueries();
 
-const Recipes = ({ recipes }) => {
+    const recipes = await client
+        .fetch(queryMain)
+        .catch((err) => console.log({ err }));
+
+	return {
+		props: {
+            recipes,
+		},
+	};
+};
+
+
+const Recipes = ({ recipes, TESTERQUERY }) => {
+    const recRouter = useRouter();
+    const refreshData = () => recRouter.replace(recRouter.asPath);
+
     // form handling, on recipes page for props 
     const [search, setSearch] = useState('');
     const [sort, setSort] = useState('');
@@ -60,8 +76,18 @@ const Recipes = ({ recipes }) => {
         setFilterOptions(e.target.value);
     };
 
+    // query handling
+    let baseQuery = "*[_type=='recipe'";
+    let filterQuery = (filterMain && filterOptions) ? ` && ${filterMain}[0] == ${filterOptions}]` : "]";
+    let sortQuery = (sort && sortDir) ? ` | order(${sort} ${sortDir})` : "";
 
-    queryHandler(search, sort, sortDir, filterMain, filterOptions);
+    const finalQuery = baseQuery + filterQuery + sortQuery;
+    // console.log('queryMain', queryMain);
+    console.log('finalQuery initial', finalQuery);
+    // console.log('assignment of queryMain', queryMain = finalQuery);
+    console.log('queryMain again', queryMain);
+    // console.log('tester', TESTERQUERY += 1);
+    // ((queryMain !== TESTERQUERY) && (typeof window !== 'undefined')) ? refreshData() : '';
 
 
     return (
@@ -74,7 +100,7 @@ const Recipes = ({ recipes }) => {
 					/>
 				</Head>
 
-				<Navbar className={s["recipes__nav"]} />
+				{/* <Navbar className={s["recipes__nav"]} /> */}
 
 				<main className={s["recipes__main"]}>
 					<GridForm
@@ -94,17 +120,15 @@ const Recipes = ({ recipes }) => {
 		);
 };
 
+// export async function formQuery(query, params) {
+// 	console.log("api:", query);
 
-// switch to serverside props vvvvvv
-export async function getServerSideProps(context) {
-    // const recipes = await formQuery(finalQuery);
-    const recipes = await getAllRecipes();
+// 	const res = await client
+// 		.fetch(query, params)
+// 		.catch((err) => console.log({ err }));
 
-    return {
-        props: {
-            recipes
-        }
-    }
-};
+// 	return res;
+// }
+
 
 export default Recipes;

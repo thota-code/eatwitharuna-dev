@@ -4,7 +4,7 @@ import s from './RecipesGridForm.module.scss';
 
 
 const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, handleFilterOptions }) => {
-
+    
     const form = () => {
         const [filterType, setFilterType] = useState("");
         const filterOptions = () => {
