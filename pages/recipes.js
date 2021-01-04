@@ -18,7 +18,8 @@ import GridForm from 'components/RecipesGrid/RecipesGridForm';
 import s from 'styles/recipes.module.scss';
 
 // let queryMain = "*[_type=='recipe']";
-let queryMain = "*[_type=='recipe'] | order(numIngredients desc)";
+// let queryMain = "*[_type=='recipe'] | order(numIngredients desc)";
+let queryMain = "*[_type=='recipe' && recipeHealth[0] == 'healthy'] | order(cookTime desc)"
 // let queryMain = "*[_type=='recipe']";
 // let queryMain = "*[_type=='recipe']";
 
@@ -42,6 +43,7 @@ export async function getServerSideProps(context) {
 const Recipes = ({ recipes, TESTERQUERY }) => {
     const recRouter = useRouter();
     const refreshData = () => recRouter.replace(recRouter.asPath);
+    console.log(recipes);
 
     // form handling, on recipes page for props 
     const [search, setSearch] = useState('');
@@ -100,7 +102,7 @@ const Recipes = ({ recipes, TESTERQUERY }) => {
 					/>
 				</Head>
 
-				{/* <Navbar className={s["recipes__nav"]} /> */}
+				<Navbar className={s["recipes__nav"]} />
 
 				<main className={s["recipes__main"]}>
 					<GridForm
