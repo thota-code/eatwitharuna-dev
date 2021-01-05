@@ -95,3 +95,37 @@ JAN 4th -
     a/A
 
     'COMPLETED'
+
+--- 
+
+regrouping on JAN 5th! 
+
+remainders - 
+    SANITYIO USER SCHEMA 
+    SAVED RECIPES 
+    AUTH CALLBACK
+        - 
+    MEHENDI CSS 
+    SVGS & ICONS (inc. DOTTED LINES)
+    DEMO (NAVBAR LOGO)
+        - 
+    FUZZY JSON SEARCH (NAVBAR) 
+    SEARCH (NAVBAR) MODAL / STYLING 
+    SEARCH / FILTER (RECIPES) LOGIC
+        - 
+    PANTRY
+        - 
+    COMPLETION OF AUX PAGES (SOCIALS, ABOUT)
+    FOOTER LINKS
+        -
+    AUTO IMAGE PIPELINE SANITYIO
+    SANITYIO DATA LOAD - RECIPES + INGREDIENTS + ETC
+
+
+AuxWork
+    Mehendi
+    SVG & ICONS 
+    Demo Logo
+    Footer Links
+    Sanity Image Pipeline
+    Aux Pages (social / about)
