@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useSWR from 'swr';
 
 import client from 'sanityio/sanity';
@@ -62,13 +62,11 @@ const Recipes = ({ recipes }) => {
         (!sortDir || sortDir === 'asc') ? setSortDir('desc') : (sortDir === 'desc') ? setSortDir('asc') : '';
         
         setGridRecipes(gridRecipes.sort(sortR()));
-        // console.log('inside', sortDir);
     };
 
     const handleFilterMain = e => {
         e.preventDefault();
         setFilterMain(e.target.value);
-        setFilterOptions('');
     };
 
     const handleFilterOptions = e => {
@@ -235,7 +233,22 @@ const Recipes = ({ recipes }) => {
         }
     };
 
-    
+    Object.filter = (obj, predicate) => {
+        Object.keys(obj)
+            .filter(key => predicate(obj[key]))
+            .reduce ((res, key) => (res[key] = obj[key], res), {});
+    }
+
+    const filterR = (rec, filterMain, filterOptions) => {
+        // recipeCategory
+        // recipeHeft
+        // recipeHealth
+        // suitableForDiet
+
+        if (rec.filterMain[0] === filterOptions) {
+
+        }
+    }
 
     // allowFeatured: true
     // cookTime: {_type: "document", cookHours: 1, cookMinutes: 10}

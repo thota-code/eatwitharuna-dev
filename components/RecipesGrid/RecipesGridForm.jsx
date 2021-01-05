@@ -13,7 +13,7 @@ const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, h
                     return (
                         <>
                             <option value="snack">snack</option>
-                            <option value="meal">meal</option>
+                            <option default value="meal">meal</option>
                             <option value="dessert">dessert</option>
                             <option value="drink">drink</option>
                         </>
@@ -22,20 +22,20 @@ const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, h
                     return (
                         <>
                             <option value="healthy">healthy</option>
-                            <option value="comfort">comfort</option>
+                            <option default value="comfort">comfort</option>
                         </>
                     );
                 case "recipeHeft":
                     return (
                         <>
                             <option value="heavy">heavy</option>
-                            <option value="light">light</option>
+                            <option default value="light">light</option>
                         </>
                     );
                 case "suitableForDiet":
                     return (
                         <>
-                            <option value="vegetarian">vegetarian</option>
+                            <option default value="vegetarian">vegetarian</option>
                             <option value="non-vegetarian">non-vegetarian</option>
                             <option value="halal" disabled>
                                 halal
@@ -48,7 +48,7 @@ const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, h
                 default:
                     return (
                         <option value="hmm" disabled>
-                            hmm...
+                            -
                         </option>
                     );
             }
@@ -63,7 +63,9 @@ const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, h
 
 						<div className={s["gridForm__form--sort-div"]}>
 							sort
-							<select name="sort" onChange={e => handleSort(e)}>
+							<select name="sort" defaultValue={'DEFAULT'} onChange={e => handleSort(e)}>
+								<option value="DEFAULT" disabled> - </option>
+
 								<option value="totalTime">total time</option>
 								<option value="difficulty">difficulty</option>
 								<option value="numIngredients">num of ingredients</option>
@@ -82,8 +84,12 @@ const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, h
                                     setFilterType(e.target.value);
                                     // console.log(e.target.value);
 									handleFilterMain(e);
-								}}
+                                }}
+                                
+                                defaultValue={"DEFAULT"}
 							>
+                                <option value="DEFAULT" disabled> - </option>
+
 								<option value="recipeCategory">category</option>
 								<option value="recipeHealth">healthiness</option>
 								<option value="recipeHeft">heft of meal</option>
