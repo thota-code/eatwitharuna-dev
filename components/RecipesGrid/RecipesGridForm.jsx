@@ -64,12 +64,12 @@ const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, h
 						<div className={s["gridForm__form--sort-div"]}>
 							sort
 							<select name="sort" onChange={e => handleSort(e)}>
+								<option value="totalTime">total time</option>
 								<option value="difficulty">difficulty</option>
 								<option value="numIngredients">num of ingredients</option>
+								<option value="recipeYield">serve amount</option>
 								<option value="prepTime">prep time</option>
 								<option value="cookTime">cook time</option>
-								<option value="totalTime">total time</option>
-								<option value="recipeYield">serve amount</option>
 							</select>
 							<button onClick={e => handleSortDir(e)}>asc/desc</button>
 						</div>
