@@ -27,18 +27,23 @@ export async function getServerSideProps(context) {
 };
 
 const Recipes = ({ recipes }) => {
+    // forceUpdate
+    const [, forceUpdate] = React.useState(0);
+
     // form handling, on recipes page for props
     const [search, setSearch] = useState('');
     const [sort, setSort] = useState('totalTime');
-    const [sortDir, setSortDir] = useState('desc');
+    const [sortDir, setSortDir] = useState('asc');
     const [filterMain, setFilterMain] = useState('');
     const [filterOptions, setFilterOptions] = useState('');
     // const [gridRecipes, setGridRecipes] = useState(recipes);
     const gridRecipes = useRef(recipes);
 
+    // handlers  
     const handleSearch = (e) => {
         e.preventDefault();
         if (e.target.value === 'DEFAULT') return;
+
         setSearch(e.target.value);
     };
 
@@ -50,16 +55,14 @@ const Recipes = ({ recipes }) => {
 
     const handleSortDir = e => {
         e.preventDefault();
+
         if (e.target.value === "DEFAULT") return;
         (!sortDir || sortDir === 'asc') ? setSortDir('desc') : (sortDir === 'desc') ? setSortDir('asc') : '';
     };
 
     const handleFilterMain = e => {
         e.preventDefault();
-        if (e.target.value === "DEFAULT") {
-            gridRecipes.current = recipes;
-            return;
-        }
+        if (e.target.value === "DEFAULT") return;
 
         setFilterMain(e.target.value);
         setFilterOptions('');
@@ -68,9 +71,24 @@ const Recipes = ({ recipes }) => {
     const handleFilterOptions = e => {
         e.preventDefault();
         if (e.target.value === "DEFAULT") return;
+
         setFilterOptions(e.target.value);
     };
 
+    const handleReset = e => {
+        setSearch('');
+        setSort('');
+        // figure out set sort dir behavior upon reset
+        setFilterMain('');
+        setFilterOptions('');
+        gridRecipes.current = recipes;
+    }
+
+    // NOTE JAN 5 2021
+    // Logic of form MUST be refactored to pull from gridRecipes.current instead of recipes in the 
+    // filter and search handlers. Be warned, the current implementation is not correct. Remove comments if fixed.
+
+    // sort logic
     const sortR = (sortROption='totalTime') => {
         // prepTime
         // cookTime
@@ -230,8 +248,7 @@ const Recipes = ({ recipes }) => {
         }
     };
 
-    const [, forceUpdate] = React.useState(0);
-
+    // sort useEffect
     useEffect(() => {
         if (sort) {
             gridRecipes.current.sort(sortR(sort))
@@ -240,18 +257,12 @@ const Recipes = ({ recipes }) => {
         };
     }, [sort, sortDir, gridRecipes]);
 
+    // filter useEffect
     useEffect(() => {
-        if (filterMain === 'DEFAULT') {
-            gridRecipes.current = recipes
-        };
         if (!filterMain || !filterOptions) return;
 
-        // if (filterMain === 'DEFAULT') {
-        //     // gridRecipes = recipes
-        //     console.log('aasdasdasd');
-        // };
 
-        const more = (
+        const filt = (
             recipes.reduce(function (result, rec) {
                 if (rec[filterMain][0] === filterOptions) {
                     result.push(rec);
@@ -260,11 +271,31 @@ const Recipes = ({ recipes }) => {
             }, [])
         );
 
-        if (gridRecipes.current !== more) {
-            gridRecipes.current = more;
+        if (gridRecipes.current !== filt) {
+            gridRecipes.current = filt;
             forceUpdate((n) => !n);
         }
     }, [filterMain, filterOptions, gridRecipes]);
+
+    useEffect(() => {
+        const resSort = (a, b) => {
+            return (a.title.charAt(0).toLowerCase().includes(search.charAt(0).toLowerCase())) ? -1 
+                : 1;
+        }
+
+        const searchRes = (
+            recipes.reduce(function (result, rec) {
+                if (rec.title.toLowerCase().includes(search.toLowerCase())) result.push(rec);
+                return result.sort(resSort);
+            }, [])
+        );
+
+        if (gridRecipes.current !== searchRes) {
+            gridRecipes.current = searchRes;
+            forceUpdate(n => !n);
+        }
+
+    }, [search, gridRecipes])
 
     // console.log('sort: ', sort);
     // console.log('sortDir: ', sortDir);
@@ -294,7 +325,8 @@ const Recipes = ({ recipes }) => {
 						handleSort={handleSort}
 						handleSortDir={handleSortDir}
 						handleFilterMain={handleFilterMain}
-						handleFilterOptions={handleFilterOptions}
+                        handleFilterOptions={handleFilterOptions}
+                        handleReset={handleReset}
 					/>
 					<RecipesGrid recipes={gridRecipes.current} numRecipes={12} />
 				</main>

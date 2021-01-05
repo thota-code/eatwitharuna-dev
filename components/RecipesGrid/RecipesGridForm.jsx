@@ -3,7 +3,7 @@ import { useState } from 'react';
 import s from './RecipesGridForm.module.scss';
 
 
-const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, handleFilterOptions }) => {
+const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, handleFilterOptions, handleReset }) => {
     
     const form = () => {
         const [filterType, setFilterType] = useState("");
@@ -11,12 +11,8 @@ const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, h
         const [butDir, setButDir] = useState({ __html: "asc&nbsp;↑" });
 
         const handleButton = e => {
-            handleSortDir(e);
-            // switch (butDir) {
-            //     case {__html: 'asc'}: setButDir({__html: 'desc'}); break;
-            //     case {__html: 'desc'}: setButDir({__html: 'asc'}); break;
-            // }
-
+			handleSortDir(e);
+			
             if (butDir.__html === "asc&nbsp;↑") {
 							setButDir({ __html: "desc↓" });
 						};
@@ -83,7 +79,7 @@ const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, h
 						</div>
 
                         <div className={s["gridForm__form--reset-div"]}>
-                            <button className={s["gridForm__form--reset-btn"]}>- reset -</button>
+                            <button type="reset" className={s["gridForm__form--reset-btn"]} onClick={e => handleReset(e)}>- reset -</button>
                         </div>
 
 						<div className={s["gridForm__form--sort-div"]}>
@@ -164,10 +160,10 @@ const GridForm = ({ handleSearch, handleSort, handleSortDir, handleFilterMain, h
 
 	return (
 		<div className={s["gridForm"]}>
-			<div className={s["gridForm__form"]}>{form()}</div>
+			<form className={s["gridForm__form"]}>{form()}</form>
 			<div className={s["gridForm__text"]}>
 				<span className={s["gridForm__text-top"]}>
-					filter and search for all recipes
+					search, sort and filter for all recipes
 				</span>
 				<span className={s["gridForm__text-bottom"]}>
 					use the{" "}

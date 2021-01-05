@@ -25,6 +25,11 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 30% auto;
 
+        &-form {
+            // height: 100%;
+            // width: 100%;
+        }
+
 
         &--search {
             &-div {
