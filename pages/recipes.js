@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useReducer } from 'react';
 import useSWR from 'swr';
 
 import client from 'sanityio/sanity';
@@ -16,12 +16,6 @@ import GridForm from 'components/RecipesGrid/RecipesGridForm';
 
 import s from 'styles/recipes.module.scss';
 
-// let queryMain = "*[_type=='recipe']";
-// let queryMain = "*[_type=='recipe'] | order(numIngredients desc)";
-// let queryMain = "*[_type=='recipe' && recipeHealth[0] == 'healthy'] | order(cookTime desc)"
-// let queryMain = "*[_type=='recipe']";
-// let queryMain = "*[_type=='recipe']";
-
 export async function getServerSideProps(context) {
     const recipes = await getAllRecipes();
 
@@ -32,7 +26,6 @@ export async function getServerSideProps(context) {
 	};
 };
 
-
 const Recipes = ({ recipes }) => {
     // form handling, on recipes page for props
     const [search, setSearch] = useState('');
@@ -40,37 +33,41 @@ const Recipes = ({ recipes }) => {
     const [sortDir, setSortDir] = useState('desc');
     const [filterMain, setFilterMain] = useState('');
     const [filterOptions, setFilterOptions] = useState('');
-    const [gridRecipes, setGridRecipes] = useState(recipes);
-
-    // console.log('gridRecipes f: ', gridRecipes);
+    // const [gridRecipes, setGridRecipes] = useState(recipes);
+    const gridRecipes = useRef(recipes);
 
     const handleSearch = (e) => {
         e.preventDefault();
+        if (e.target.value === 'DEFAULT') return;
         setSearch(e.target.value);
     };
 
     const handleSort = e => {
         e.preventDefault();
+        if (e.target.value === "DEFAULT") return;
         setSort(e.target.value);
-
-        setGridRecipes(gridRecipes.sort(sortR(sort)));
-        console.log('handleSort', gridRecipes);
     };
 
     const handleSortDir = e => {
         e.preventDefault();
+        if (e.target.value === "DEFAULT") return;
         (!sortDir || sortDir === 'asc') ? setSortDir('desc') : (sortDir === 'desc') ? setSortDir('asc') : '';
-        
-        setGridRecipes(gridRecipes.sort(sortR()));
     };
 
     const handleFilterMain = e => {
         e.preventDefault();
+        if (e.target.value === "DEFAULT") {
+            gridRecipes.current = recipes;
+            return;
+        }
+
         setFilterMain(e.target.value);
+        setFilterOptions('');
     };
 
     const handleFilterOptions = e => {
         e.preventDefault();
+        if (e.target.value === "DEFAULT") return;
         setFilterOptions(e.target.value);
     };
 
@@ -84,7 +81,7 @@ const Recipes = ({ recipes }) => {
 
         const prepTime = () => {
             switch (sortDir) {
-                case "desc":
+                case "asc":
                     return function (a, b) {
                         return a.prepTime.prepHours < b.prepTime.prepHours
                             ? 1
@@ -92,7 +89,7 @@ const Recipes = ({ recipes }) => {
                             ? -1
                             : 0;
                     };
-                case "asc":
+                case "desc":
                     return function (a, b) {
                         return a.prepTime.prepHours > b.prepTime.prepHours
                             ? 1
@@ -105,7 +102,7 @@ const Recipes = ({ recipes }) => {
 
         const cookTime = () => {
             switch (sortDir) {
-                case "desc":
+                case "asc":
                     return function (a, b) {
                         return a.cookTime.cookHours < b.cookTime.cookHours
                             ? 1
@@ -113,7 +110,7 @@ const Recipes = ({ recipes }) => {
                             ? -1
                             : 0;
                     };
-                case "asc":
+                case "desc":
                     return function (a, b) {
                         return a.cookTime.cookHours > b.cookTime.cookHours
                             ? 1
@@ -126,7 +123,7 @@ const Recipes = ({ recipes }) => {
 
         const totalTime = () => {
             switch (sortDir) {
-                case "desc":
+                case "asc":
                     return function (a, b) {
                         return a.totalTime.totalHours < b.totalTime.totalHours
                             ? 1
@@ -134,7 +131,7 @@ const Recipes = ({ recipes }) => {
                             ? -1
                             : 0;
                     };
-                case "asc":
+                case "desc":
                     return function (a, b) {
                         return a.totalTime.totalHours > b.totalTime.totalHours
                             ? 1
@@ -147,7 +144,7 @@ const Recipes = ({ recipes }) => {
 
         const difficulty = () => {
             switch (sortDir) {
-                case "desc":
+                case "asc":
                     return function (a, b) {
                         return a.difficulty < b.difficulty
                             ? 1
@@ -155,7 +152,7 @@ const Recipes = ({ recipes }) => {
                             ? -1
                             : 0;
                     };
-                case "asc":
+                case "desc":
                     return function (a, b) {
                         return a.difficulty > b.difficulty
                             ? 1
@@ -168,7 +165,7 @@ const Recipes = ({ recipes }) => {
 
         const numIngredients = () => {
             switch (sortDir) {
-                case "desc":
+                case "asc":
                     return function (a, b) {
                         return a.numIngredients < b.numIngredients
                             ? 1
@@ -176,7 +173,7 @@ const Recipes = ({ recipes }) => {
                             ? -1
                             : 0;
                     };
-                case "asc":
+                case "desc":
                     return function (a, b) {
                         return a.numIngredients > b.numIngredients
                             ? 1
@@ -189,7 +186,7 @@ const Recipes = ({ recipes }) => {
 
         const recipeYield = () => {
             switch (sortDir) {
-                case "desc":
+                case "asc":
                     return function (a, b) {
                         return a.recipeYield < b.recipeYield
                             ? 1
@@ -197,7 +194,7 @@ const Recipes = ({ recipes }) => {
                             ? -1
                             : 0;
                     };
-                case "asc":
+                case "desc":
                     return function (a, b) {
                         return a.recipeYield > b.recipeYield
                             ? 1
@@ -233,53 +230,48 @@ const Recipes = ({ recipes }) => {
         }
     };
 
-    Object.filter = (obj, predicate) => {
-        Object.keys(obj)
-            .filter(key => predicate(obj[key]))
-            .reduce ((res, key) => (res[key] = obj[key], res), {});
-    }
+    const [, forceUpdate] = React.useState(0);
 
-    const filterR = (rec, filterMain, filterOptions) => {
-        // recipeCategory
-        // recipeHeft
-        // recipeHealth
-        // suitableForDiet
+    useEffect(() => {
+        if (sort) {
+            gridRecipes.current.sort(sortR(sort))
+        } else {
+            gridRecipes.current.sort(sortR())
+        };
+    }, [sort, sortDir, gridRecipes]);
 
-        if (rec.filterMain[0] === filterOptions) {
+    useEffect(() => {
+        if (filterMain === 'DEFAULT') {
+            gridRecipes.current = recipes
+        };
+        if (!filterMain || !filterOptions) return;
 
+        // if (filterMain === 'DEFAULT') {
+        //     // gridRecipes = recipes
+        //     console.log('aasdasdasd');
+        // };
+
+        const more = (
+            recipes.reduce(function (result, rec) {
+                if (rec[filterMain][0] === filterOptions) {
+                    result.push(rec);
+                }
+                return result;
+            }, [])
+        );
+
+        if (gridRecipes.current !== more) {
+            gridRecipes.current = more;
+            forceUpdate((n) => !n);
         }
-    }
+    }, [filterMain, filterOptions, gridRecipes]);
 
-    // allowFeatured: true
-    // cookTime: {_type: "document", cookHours: 1, cookMinutes: 10}
-    // difficulty: 1
-    // images: {_type: "document", image_2: {…}, image_main: {…}}
-    // numIngredients: 2
-    // prepTime: {_type: "document", prepHours: 2, prepMinutes: 50}
-    // recipeCategory: ["dessert"]
-    // recipeHealth: ["comfort"]
-    // recipeHeft: ["light"]
-    // recipeIngredients: (2) [{…}, {…}]
-    // recipeInstructions: (3) [{…}, {…}, {…}]
-    // recipeYield: 123
-    // slug: {_type: "slug", current: "cookies-and-milk"}
-    // suitableForDiet: ["vegetarian"]
-    // summary: {_type: "document", summary_byline: ":o and milk!", summary_main: "COOKIES!"}
-    // title: "Cookies and Milk"
-    // totalTime: {_type: "document", totalHours: 3, totalMinutes: 0}
-    // _createdAt: "2020-12-29T23:51:36Z"
-    // _id: "0e057684-0438-4450-999a-6a5fc96c1494"
-    // _rev: "j8deEMcViQHUvHOrEzRBP5"
-    // _type: "recipe"
-    // _updatedAt: "2020-12-31T04:24:20Z"
-    // __proto__: Object
-
-    // pushed into util later
-
-    // all sort functions
-    // console.log(sort)
-    // console.log(sortDir)
-
+    // console.log('sort: ', sort);
+    // console.log('sortDir: ', sortDir);
+    // console.log('filterMain: ', filterMain);
+    // console.log('filterOptions: ', filterOptions);
+    // console.log('gridRecipes: ', gridRecipes);
+    // console.log('-----------');
     
 
     return (
@@ -292,9 +284,11 @@ const Recipes = ({ recipes }) => {
 					/>
 				</Head>
 
-				{/* <Navbar className={s["recipes__nav"]} /> */}
+
+				<Navbar className={s["recipes__nav"]} />
 
 				<main className={s["recipes__main"]}>
+                    <span className={s["recipes__main-title"]}>all recipes</span>
 					<GridForm
 						handleSearch={handleSearch}
 						handleSort={handleSort}
@@ -302,7 +296,7 @@ const Recipes = ({ recipes }) => {
 						handleFilterMain={handleFilterMain}
 						handleFilterOptions={handleFilterOptions}
 					/>
-					<RecipesGrid recipes={gridRecipes} numRecipes={12} />
+					<RecipesGrid recipes={gridRecipes.current} numRecipes={12} />
 				</main>
 
 				<footer className={s["recipes__footer"]}>
@@ -311,16 +305,6 @@ const Recipes = ({ recipes }) => {
 			</div>
 		);
 };
-
-// export async function formQuery(query, params) {
-// 	console.log("api:", query);
-
-// 	const res = await client
-// 		.fetch(query, params)
-// 		.catch((err) => console.log({ err }));
-
-// 	return res;
-// }
 
 
 export default Recipes;

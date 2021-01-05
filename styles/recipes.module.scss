@@ -12,9 +12,16 @@
 
     &__main {
 
+        &-title {
+            font-family: 'DM Mono', monospace;
+            font-size: 4rem;
+            margin-left: 15rem;
+        }
     }
 
     &__footer {
         margin-top: auto;
     }
+
+
 }
