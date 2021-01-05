@@ -17,9 +17,11 @@ export async function getAllRecipes() {
     const query = "*[_type == 'recipe']";
     const params = {};
 
+    debugger;
+    
     const res = await client
         .fetch(query)
-        .catch(err => console.log({ err }));
+        .catch(err => console.log({ err }))
 
     return res;
 };
@@ -37,3 +39,11 @@ export async function getSingleRecipe(slug) {
 
     return res;
 };
+
+export async function getCustomRecipes(query) {
+    const res = await client
+        .fetch(query)
+        .catch(err => console.log({ err }));
+
+    return res;
+}

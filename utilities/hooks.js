@@ -1,6 +1,6 @@
 import { Magic } from "magic-sdk";
-import { useEffect } from "react";
-import Router from "next/router";
+import { useEffect, useCallback } from "react";
+import Router, { useRouter } from "next/router";
 import useSWR from "swr";
 
 const fetchUser = (url) =>
@@ -28,4 +28,12 @@ export function useUser({ redirectTo, redirectIfFound } = {}) {
 		}
 	}, [redirectTo, redirectIfFound, finished, hasUser]);
 	return error ? null : user;
+}
+
+
+export function useRouterRefresh () {
+	const { asPath } = useRouter();
+	const refresh = useCallback(() => router.replace(asPath), [asPath]);
+
+	return refresh;
 }

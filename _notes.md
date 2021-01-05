@@ -21,9 +21,10 @@
 todo 
 
 - featRecipe API / getAllFeaturableRecipes => allow params for /snacks only! featRecipe/
-- sanity.js environment variables not working .env.local
 - assigned color functions / option in SANITYIO for colors - featured & single 
 - api for ingredients to have caloric values
+- figure out 'next' featured recipe
+- spice in grid form 
 
 dec 31st LEFT - 
 MORE RECIPES COMPONENT
@@ -80,7 +81,7 @@ JAN 2nd -
     index css grid, sticky footer
     MORE RECIPES COMPONENT
 
-    ? -> mehendi, images
+    ? -> mehendi, auth completion (callback, login page css grid)
 JAN 3rd -
     SEARCH
     SANITY DATA LOAD 
@@ -88,6 +89,7 @@ JAN 3rd -
 
     ? -> PANTRY, IMAGES
 JAN 4th -
+    PANTRY
     HOSTING
     RESUME 
     a/A

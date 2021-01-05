@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import s from './FeaturedRecipe.module.scss';
 import { featuredRecipeUtil, toHourRound } from "utilities/util";
 
-const FeaturedRecipe = React.forwardRef(({ fR, onClick, href }, ref) => {
+const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
     const loadingState = {
         title: '',
         summaryMain: '',
@@ -54,7 +54,6 @@ const FeaturedRecipe = React.forwardRef(({ fR, onClick, href }, ref) => {
 			<a
 				ref={ref}
 				href={href}
-				onClick={onClick}
 				className={s["a-Featured"]}
 			>
 				<div className={s["featured"]}>

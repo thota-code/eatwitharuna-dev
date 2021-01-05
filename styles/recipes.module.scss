@@ -1,0 +1,27 @@
+@import 'styles/variables.scss';
+
+.recipes {
+    // border: 3px solid yellow;
+
+    display: grid;
+    // grid-template-rows: 1fr minmax(20rem, 5fr) 1fr;
+
+    &__nav {
+        margin-bottom: auto;
+    }
+
+    &__main {
+
+        &-title {
+            font-family: 'DM Mono', monospace;
+            font-size: 4rem;
+            margin-left: 15rem;
+        }
+    }
+
+    &__footer {
+        margin-top: auto;
+    }
+
+
+}
