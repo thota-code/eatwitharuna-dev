@@ -123,9 +123,13 @@ remainders -
 
 
 AuxWork
-    Mehendi
-    SVG & ICONS 
-    Demo Logo
-    Footer Links
+    <!-- Mehendi -->
+    <!-- SVG & ICONS  -->
+    <!-- Demo Logo -->
+    <!-- Footer Links -->
     Sanity Image Pipeline
     Aux Pages (social / about)
+    Login page sizing + footer fixes
+    Blog Divs
+    getStaticProps for recipes.js
+

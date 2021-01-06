@@ -92,7 +92,9 @@ const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
 
 					<div className={s["featured__info"]}>
 						<div className={s["featured__next"]}>
-							<span className={s["featured__next-text"]}>next</span>
+							<span className={s["featured__next-text"]}>
+								next →
+							</span>
 							{/* svg here */}
 						</div>
 
@@ -121,7 +123,12 @@ const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
 					</div>
 
 					<div className={s["featured__Mlarge"]}>
-						<Image src="/MLarge.svg" className={s["featured__Mlarge-img"]} height={270} width={270} />
+						<Image
+							src="/MLarge.svg"
+							className={s["featured__Mlarge-img"]}
+							height={270}
+							width={270}
+						/>
 					</div>
 				</div>
 			</a>

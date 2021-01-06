@@ -28,6 +28,17 @@
             line-height: 87%;
 
             word-spacing: 9999rem; // trick to single word line
+            padding-left: 2rem;
+            border-left: 9px dotted $main-dark;
+
+            cursor: default;
+
+            transition: all .3s;
+
+            &:hover {
+                border-left: 9px dotted $main-light;
+            }
+
         }
 
         &-links {
@@ -45,6 +56,10 @@
                 line-height: 2.2rem;
                 color: $main-light;
                 text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
 
             &--pages,

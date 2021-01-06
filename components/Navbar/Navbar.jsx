@@ -27,6 +27,7 @@ export default function Navbar({ username }) {
         <>
             <header className={s['nav']}>
                 <div className={s['nav__logo']}>
+                    <a href="/about" className={s["nav__logo-demo"]}>demo!</a>
                     <Link href="/">
                     <span className={s['nav__logo-text']}>
                         eat with aruna

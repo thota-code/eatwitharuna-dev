@@ -110,11 +110,13 @@
     }
 
     &__next {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        // position: relative;
-        // bottom: 20rem;
-        // left: 52rem;
+        // border: 3px solid black;
+
         font-family: 'DM Sans', sans-serif;
         color: $main-dark;
         
@@ -124,11 +126,14 @@
 
         position: relative;
         bottom: 10rem;
+
+        padding: 0.2rem;
         
         cursor: pointer;
 
         &:hover {
             color: $main-light;
+            background-color: $main-dark;
         }
     }
 
