@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import s from './FeaturedRecipe.module.scss';
 import { featuredRecipeUtil, toHourRound } from "utilities/util";
 
+import Image from "next/image";
+
 const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
     const loadingState = {
         title: '',
@@ -51,11 +53,7 @@ const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
 	
 
     return (
-			<a
-				ref={ref}
-				href={href}
-				className={s["a-Featured"]}
-			>
+			<a ref={ref} href={href} className={s["a-Featured"]}>
 				<div className={s["featured"]}>
 					<div className={s["featured__visual-div"]} />
 					<div className={s["featured__tags"]}>
@@ -120,6 +118,10 @@ const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
 								{featRec.totalTime}
 							</span>
 						</div>
+					</div>
+
+					<div className={s["featured__Mlarge"]}>
+						<Image src="/MLarge.svg" className={s["featured__Mlarge-img"]} height={270} width={270} />
 					</div>
 				</div>
 			</a>

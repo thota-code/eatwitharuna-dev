@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 import s from 'styles/login.module.scss';
 import Navbar from 'components/Navbar/Navbar';
+import Footer from 'components/Footer/Footer';
 
 import { validateEmail } from 'utilities/authUtil';
 import { useUser } from 'utilities/hooks';
@@ -82,6 +83,8 @@ const Join = () => {
 						</form>
 					</div>
 				</div>
+
+				{/* <Footer /> */}
 			</>
 		);
 }

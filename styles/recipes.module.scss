@@ -24,4 +24,20 @@
     }
 
 
+    &__Mcorner {
+        // border: 2px solid black;
+        // max-height: 20rem;
+        // max-width: 20rem;
+        overflow: hidden;
+
+        position: absolute;
+        top: -8rem;
+        left: -8rem;
+        
+        z-index: -10000;
+        
+        &-img {
+            transform: rotate(45deg);
+        }
+    }
 }

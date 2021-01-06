@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import Navbar from 'components/Navbar/Navbar';
 import FeaturedRecipe from 'components/FeaturedRecipe/FeaturedRecipe';
@@ -26,34 +27,34 @@ export default function Home({ featuredRecipe }) {
   const recipeHref = '/recipe/' + featuredRecipe.slug.current;
 
   return (
-    <div className={s["index"]}>
-      <Head>
-        <title>Eat with Aruna</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+		<div className={s["index"]}>
+			<Head>
+				<title>Eat with Aruna</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
 
-      <Navbar className={s["index__nav"]}/>
+			<div className={s["index__Mcorner"]}>
+				<Image
+					src="/MCorner.svg"
+					className={s["index__Mcorner-img"]}
+					height={200}
+					width={200}
+				/>
+			</div>
 
-      <main className={s["index__main"]}>
-        <div className="featured-section">
-          <Link href={recipeHref} passHref>
-              <FeaturedRecipe fR={featuredRecipe} />
-          </Link>
-          <Link href={recipeHref} passHref>
-              <FeaturedRecipe fR={featuredRecipe} />
-          </Link>
-          <Link href={recipeHref} passHref>
-              <FeaturedRecipe fR={featuredRecipe} />
-          </Link>
+			<Navbar className={s["index__nav"]} />
 
-        </div>
+			<main className={s["index__main"]}>
+				<div className="featured-section">
+					<Link href={recipeHref} passHref>
+						<FeaturedRecipe fR={featuredRecipe} />
+					</Link>
+				</div>
+			</main>
 
-
-      </main>
-
-      <footer className={s["index__footer"]}>
-        <Footer />
-      </footer>
-    </div>
-  )
+			<footer className={s["index__footer"]}>
+				<Footer />
+			</footer>
+		</div>
+	);
 }
