@@ -129,7 +129,7 @@ AuxWork
     <!-- Footer Links -->
     Sanity Image Pipeline
     Aux Pages (social / about)
-    Login page sizing + footer fixes
+    <!-- Login page sizing + footer fixes -->
     Blog Divs
     getStaticProps for recipes.js
 
