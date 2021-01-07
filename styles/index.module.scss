@@ -2,8 +2,6 @@
 
 .index {
     // border: 1px yellow solid;
-
-    
     display: grid;
     grid-template-rows: 1fr minmax(20rem, 5fr) 1fr;
     grid-template-areas: 
@@ -11,12 +9,8 @@
         "main"
         "footer";
     row-gap: 2rem;
-    // height: 100vh;
 
     &__Mcorner {
-        // border: 2px solid black;
-        // max-height: 20rem;
-        // max-width: 20rem;
         overflow: hidden;
 
         position: absolute;
@@ -37,7 +31,22 @@
 
     &__main {
         grid-area: main;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-evenly;
 
+        &-featured {
+
+        }
+
+        &-grid {
+            border: 2px solid black;
+        }
+
+        &-blog {
+            border: 2px solid black;
+
+        }
     }
 
     &__footer {

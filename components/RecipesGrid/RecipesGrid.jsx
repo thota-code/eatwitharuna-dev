@@ -42,7 +42,7 @@ const RecipeTile = React.forwardRef(({ recipe, href, onClick }, ref) => {
 });
 
 
-const RecipesGrid = ({ recipes={}, numRecipes=100, miniForm, mainForm }) => {
+const RecipesGrid = ({ recipes={}, numRecipes=100, moreRec=false }) => {
 	const [currRecipes, setCurrRecipes] = useState(recipes);
 	// console.log('insideGrid ', recipes);
 	if (currRecipes !== recipes) setCurrRecipes(recipes);

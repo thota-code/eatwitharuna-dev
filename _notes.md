@@ -127,9 +127,15 @@ AuxWork
     <!-- SVG & ICONS  -->
     <!-- Demo Logo -->
     <!-- Footer Links -->
-    Sanity Image Pipeline
-    Aux Pages (social / about)
     <!-- Login page sizing + footer fixes -->
-    Blog Divs
-    getStaticProps for recipes.js
 
+AuxWork (cont.)
+    Blog Divs
+    Index MoreRecipes Comp
+    Sanity Image Pipeline
+    MoreRecipes Comp following SingleRecipe
+    cont. Mehendi
+    Aux Pages (social / about)
+    getStaticProps for recipes.js
+    AUTH Callback
+    figure out colors for featrec

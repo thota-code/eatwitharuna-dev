@@ -1,13 +1,35 @@
 import React, { useState } from 'react';
 
+import { useEffect } from 'react';
+
 import s from './FeaturedRecipe.module.scss';
-import { featuredRecipeUtil, toHourRound } from "utilities/util";
+import { featuredRecipeUtil, toHourRound, generateRandomInteger } from "utilities/util";
 
 import Image from "next/image";
+import Link from 'next/link';
 
-const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
-    const loadingState = {
-        title: '',
+const FeaturedRecipe = ({ recipes }) => {
+	// all recipes
+	// set fR to current recipe
+	// change fR upon 'next' button click
+	
+	// const [randIdx, setRandIdx] = useState(generateRandomInteger(0, 3));
+	const [idx, setIdx] = useState(0);
+	const [fR, setFR] = useState(recipes[idx]);
+	const length = recipes.length;
+	let nextIdx = idx + 1;
+
+	useEffect(() => {
+		setFR(recipes[idx]);
+	}, [idx])
+
+	const nextHandler = e => {
+		if (idx+1 === length) { setIdx(0); return; };
+		setIdx(nextIdx);
+	};
+	
+	const loadingState = {
+		title: '',
         summaryMain: '',
         summaryByline: 'One second...', 
         imageMain: '', 
@@ -17,32 +39,15 @@ const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
         recipeCategory: '', 
         suitableForDiet: '',
         recipeHeft: '',
-    };
-
-    const featRecipeState = fR
-			? {
-					title: fR.title,
-					summaryMain: fR.summary.summary_main,
-					summaryByline: fR.summary.summary_byline,
-					imageMain: fR.images.image_main,
-					totalTime: toHourRound(
-						fR.totalTime.totalHours,
-						fR.totalTime.totalMinutes
-					),
-					recipeYield: fR.recipeYield,
-					numIngredients: fR.numIngredients,
-					recipeCategory: fR.recipeCategory[0],
-					suitableForDiet: fR.suitableForDiet[0],
-					recipeHeft: fR.recipeHeft[0],
-			  }
-			: null;
+	};
 	
-	const [featRec, setFeatRec] = useState(featRecipeState ? featRecipeState : loadingState);
-	const title = featRec.title;
-	// not a fan of this ^ implementation
+	// const nextFeatHandler = e => {
+	// 	// e.preventDefault();
+	// 	newRec();
+	// }
 
     function titleLastCap() {
-        const splitTitle = title.split(' ');
+        const splitTitle = fR.title.split(' ');
         return (
             <>
                 {splitTitle.slice(0, -1).join(' ')}
@@ -53,18 +58,18 @@ const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
 	
 
     return (
-			<a ref={ref} href={href} className={s["a-Featured"]}>
+			<a className={s["a-Featured"]}>
 				<div className={s["featured"]}>
 					<div className={s["featured__visual-div"]} />
 					<div className={s["featured__tags"]}>
 						<span className={s["featured__tags--diet"]}>
-							{featRec.suitableForDiet},
+							{fR.suitableForDiet},
 						</span>
 						<span className={s["featured__tags--heft"]}>
-							{featRec.recipeHeft},
+							{fR.recipeHeft},
 						</span>
 						<span className={s["featured__tags--category"]}>
-							{featRec.recipeCategory}
+							{fR.recipeCategory}
 						</span>
 					</div>
 
@@ -82,17 +87,17 @@ const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
 
 						<div className={s["featured__desc"]}>
 							<span className={s["featured__desc--main"]}>
-								{featRec.summaryMain}
+								{fR.summary.summary_main}
 							</span>
 							<span className={s["featured__desc--byline"]}>
-								{featRec.summaryByline}
+								{fR.summary.summary_byline}
 							</span>
 						</div>
 					</div>
 
 					<div className={s["featured__info"]}>
 						<div className={s["featured__next"]}>
-							<span className={s["featured__next-text"]}>
+							<span className={s["featured__next-text"]} onClick={e => nextHandler(e)}>
 								next →
 							</span>
 							{/* svg here */}
@@ -101,7 +106,7 @@ const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
 						<div className={s["featured__info-serves"]}>
 							<span className={s["featured__info-serves--text"]}>serves:</span>
 							<span className={s["featured__info-serves--num"]}>
-								{featRec.recipeYield}
+								{fR.recipeYield}
 							</span>
 						</div>
 
@@ -110,14 +115,14 @@ const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
 								ingredients:
 							</span>
 							<span className={s["featured__info-ing--num"]}>
-								{featRec.numIngredients}
+								{fR.numIngredients}
 							</span>
 						</div>
 
 						<div className={s["featured__info-time"]}>
 							<span className={s["featured__info-time--text"]}>time/h:</span>
 							<span className={s["featured__info-time--num"]}>
-								{featRec.totalTime}
+								{toHourRound(fR.totalTime.totalHours)}
 							</span>
 						</div>
 					</div>
@@ -133,6 +138,6 @@ const FeaturedRecipe = React.forwardRef(({ fR, href }, ref) => {
 				</div>
 			</a>
 		);
-});
+};
 
 export default FeaturedRecipe;

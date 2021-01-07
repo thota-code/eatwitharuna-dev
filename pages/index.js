@@ -6,25 +6,28 @@ import Navbar from 'components/Navbar/Navbar';
 import FeaturedRecipe from 'components/FeaturedRecipe/FeaturedRecipe';
 import Footer from 'components/Footer/Footer';
 import SingleRecipe from 'components/SingleRecipeCard/SingleRecipeCard';
+import RecipesGrid from 'components/RecipesGrid/RecipesGrid';
 
 import s from 'styles/index.module.scss';
 
-import { featuredRecipeUtil } from 'utilities/util';
+// import { featuredRecipeUtil } from 'utilities/util';
+import { getAllFeaturableRecipes } from 'sanityio/api';
 
 export async function getStaticProps(ctx) {
-  let featuredRecipe = await featuredRecipeUtil();
+//   let featuredRecipe = await featuredRecipeUtil();
+	let featRecipes = await getAllFeaturableRecipes();
   
   return {
     props: {
-      featuredRecipe,
+		featRecipes,
     },
-    revalidate: 40,
+    // revalidate: 40,
   }
 }
 
 
-export default function Home({ featuredRecipe }) {
-  const recipeHref = '/recipe/' + featuredRecipe.slug.current;
+export default function Home({ featRecipes }) {
+//   const recipeHref = '/recipe/' + featuredRecipe.slug.current;
 
   return (
 		<div className={s["index"]}>
@@ -45,10 +48,18 @@ export default function Home({ featuredRecipe }) {
 			<Navbar className={s["index__nav"]} />
 
 			<main className={s["index__main"]}>
-				<div className="featured-section">
-					<Link href={recipeHref} passHref>
-						<FeaturedRecipe fR={featuredRecipe} />
-					</Link>
+				<div className={s["index__main-featured"]}>
+					{/* <Link href={recipeHref} passHref> */}
+						<FeaturedRecipe recipes={featRecipes} />
+					{/* </Link> */}
+				</div>
+
+				<div className={s["index__main-grid"]}>
+
+				</div>
+
+				<div className={s["index__main-blog"]}>
+
 				</div>
 			</main>
 

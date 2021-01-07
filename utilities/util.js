@@ -11,15 +11,15 @@ export function fetcher(url) {
 // featured recipe util
 import { getAllFeaturableRecipes } from 'sanityio/api';
 
-export async function featuredRecipeUtil() {
-    const allRecipes = await getAllFeaturableRecipes()
+// export async function featuredRecipeUtil() {
+//     const allRecipes = await getAllFeaturableRecipes()
 
-    let currL = allRecipes.length;
-    let randIdx = generateRandomInteger(0, currL-1);
-    let featuredRecipe = allRecipes[randIdx];
+    // let currL = allRecipes.length;
+    // let randIdx = generateRandomInteger(0, currL-1);
+    // let featuredRecipe = allRecipes[randIdx];
 
-    return featuredRecipe;
-}
+//     return featuredRecipe;
+// }
 
 export function toHourRound(hr, min) {
     // returns a number, rounded hours
