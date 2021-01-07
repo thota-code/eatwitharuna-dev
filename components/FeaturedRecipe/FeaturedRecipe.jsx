@@ -19,6 +19,7 @@ const FeaturedRecipe = ({ recipes }) => {
 	const length = recipes.length;
 	let nextIdx = idx + 1;
 
+
 	useEffect(() => {
 		setFR(recipes[idx]);
 	}, [idx])
@@ -58,9 +59,8 @@ const FeaturedRecipe = ({ recipes }) => {
 	
 
     return (
-			<a className={s["a-Featured"]}>
-				<div className={s["featured"]}>
-					<div className={s["featured__visual-div"]} />
+			<div className={s["featured"]}>
+					{/* <div className={s["featured__visual-div"]} /> */}
 					<div className={s["featured__tags"]}>
 						<span className={s["featured__tags--diet"]}>
 							{fR.suitableForDiet},
@@ -73,27 +73,29 @@ const FeaturedRecipe = ({ recipes }) => {
 						</span>
 					</div>
 
-					<div className={s["featured__image"]}>
-						<img src="" alt="" className={s["featured__image-img"]} />
-					</div>
-
-					<div className={s["featured__title-desc"]}>
-						<div className={s["featured__title"]}>
-							<span className={s["featured__title-text"]}>
-								{/* chicken dum <span className={s['featured__title-text--last']}>biryani</span> */}
-								{titleLastCap()}
-							</span>
+					<Link href={`/recipe/${fR.slug.current}`} className={s["a-Featured"]}>
+						<div className={s["featured__image"]}>
+							<img src={fR.mainImageUrl} alt="" className={s["featured__image-img"]} />
 						</div>
+					</Link>
 
-						<div className={s["featured__desc"]}>
-							<span className={s["featured__desc--main"]}>
-								{fR.summary.summary_main}
-							</span>
-							<span className={s["featured__desc--byline"]}>
-								{fR.summary.summary_byline}
-							</span>
+						<div className={s["featured__title-desc"]}>
+							<div className={s["featured__title"]}>
+								<span className={s["featured__title-text"]}>
+									{/* chicken dum <span className={s['featured__title-text--last']}>biryani</span> */}
+									{titleLastCap()}
+								</span>
+							</div>
+
+							<div className={s["featured__desc"]}>
+								<span className={s["featured__desc--main"]}>
+									{fR.summary.summary_main}
+								</span>
+								<span className={s["featured__desc--byline"]}>
+									{fR.summary.summary_byline}
+								</span>
+							</div>
 						</div>
-					</div>
 
 					<div className={s["featured__info"]}>
 						<div className={s["featured__next"]}>
@@ -136,7 +138,7 @@ const FeaturedRecipe = ({ recipes }) => {
 						/>
 					</div>
 				</div>
-			</a>
+			// </Link>
 		);
 };
 

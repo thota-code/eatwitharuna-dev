@@ -132,6 +132,7 @@ AuxWork
 AuxWork (cont.)
     Blog Divs
     Index MoreRecipes Comp
+    -
     Sanity Image Pipeline
     MoreRecipes Comp following SingleRecipe
     cont. Mehendi
@@ -139,3 +140,7 @@ AuxWork (cont.)
     getStaticProps for recipes.js
     AUTH Callback
     figure out colors for featrec
+    FIX !!!! mehendi for FeatRec. Maybe put it in flexbox of details + next, and use that to always be aligned. Position ABSOLUTE BADDDD
+    dotted line under featrec
+    USE SECOND RECIPES IMAGE IN SINGLEREC
+    

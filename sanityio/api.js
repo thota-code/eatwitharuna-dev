@@ -2,7 +2,7 @@ import client from './sanity';
 
 // featured recipe call =
 export async function getAllFeaturableRecipes(p) {
-    const query = "*[_type == 'recipe' && allowFeatured]"
+    const query = "*[_type == 'recipe' && allowFeatured]{..., 'mainImageUrl': images.image_main.asset->url}"
     const params = {};
 
     const res = await client
@@ -14,7 +14,7 @@ export async function getAllFeaturableRecipes(p) {
 
 // all recipes
 export async function getAllRecipes() {
-    const query = "*[_type == 'recipe']";
+    const query = "*[_type == 'recipe']{..., 'mainImageUrl': images.image_main.asset->url}";
     const params = {};
 
     debugger;

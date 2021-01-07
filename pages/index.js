@@ -7,6 +7,7 @@ import FeaturedRecipe from 'components/FeaturedRecipe/FeaturedRecipe';
 import Footer from 'components/Footer/Footer';
 import SingleRecipe from 'components/SingleRecipeCard/SingleRecipeCard';
 import RecipesGrid from 'components/RecipesGrid/RecipesGrid';
+import IndexBlogs from 'components/IndexBlogs/IndexBlogs';
 
 import s from 'styles/index.module.scss';
 
@@ -50,16 +51,25 @@ export default function Home({ featRecipes }) {
 			<main className={s["index__main"]}>
 				<div className={s["index__main-featured"]}>
 					{/* <Link href={recipeHref} passHref> */}
-						<FeaturedRecipe recipes={featRecipes} />
+					<FeaturedRecipe recipes={featRecipes} />
 					{/* </Link> */}
 				</div>
 
-				<div className={s["index__main-grid"]}>
+				{/* <section className={s["index__dotted-1"]}> */}
+					<Image
+						src="/DottedLine.svg"
+						className={s["index__dotted-1-img"]}
+						height={7}
+						width={5}
+					/>
+				{/* </section> */}
 
+				<div className={s["index__main-grid"]}>
+					<RecipesGrid numRecipes={8} recipes={featRecipes} moreRec={true} />
 				</div>
 
 				<div className={s["index__main-blog"]}>
-
+					<IndexBlogs />
 				</div>
 			</main>
 

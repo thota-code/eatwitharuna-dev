@@ -20,7 +20,7 @@ const RecipeTile = React.forwardRef(({ recipe, href, onClick }, ref) => {
 			<a ref={ref} href={href} onClick={onClick} className={s["a-Tile"]}>
 				<div className={s["grid__main-tile"]}>
 					<div className={s["grid__main-tile--image"]}>
-						{/* <Image src="/" >{images[0]}</Image> */}
+						<img src={recipe.mainImageUrl} alt="" className={s["grid__main-tile--image-img"]}>{images[0]}</img>
 					</div>
 
 					<div className={s["grid__main-tile-info"]}>
@@ -46,6 +46,12 @@ const RecipesGrid = ({ recipes={}, numRecipes=100, moreRec=false }) => {
 	const [currRecipes, setCurrRecipes] = useState(recipes);
 	// console.log('insideGrid ', recipes);
 	if (currRecipes !== recipes) setCurrRecipes(recipes);
+
+	const allLink = () => (
+		<Link href="/recipes">
+			<span className={s["grid__moreRec"]}>all recipes →</span>
+		</Link>
+	);
 
 	const gridRender = () => {
 		const grid = [];
@@ -78,6 +84,7 @@ const RecipesGrid = ({ recipes={}, numRecipes=100, moreRec=false }) => {
     return (
 			<div className={s["grid"]}>
                 {gridRender()}
+				{moreRec ? allLink() : null}
 			</div>
 		);
 }

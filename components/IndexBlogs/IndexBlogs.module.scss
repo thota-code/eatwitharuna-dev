@@ -1,0 +1,31 @@
+@import 'styles/variables.scss';
+
+.TESTblogs {
+    // min-height: 70rem;
+    margin: 0 10rem;
+    display: flex;
+
+
+    &__1 {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 80rem;
+        // padding-bottom: 20rem;
+
+        font-family: 'DM Mono', monospace;
+        font-size: 10rem;
+
+        transition: all .2s;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: $med-blue;
+            color: $main-light
+        }
+        border: 5px solid black;
+    }
+}

@@ -17,6 +17,7 @@
 
     &__tags {
         // border: 1px solid black;
+        cursor: default;
 
         font-family: 'DM Sans', sans-serif;
         font-weight: 700;
@@ -38,16 +39,29 @@
     }
 
     &__image {
-        // border: 1px solid black;
+        cursor: pointer;
+        
         background-color: $main-dark;
-
+        
         height: 30rem;
         width: 30rem;
         // margin: 4rem 0 1rem 7rem;
-
+        
         border-radius: 3rem;
-
+        
         flex: none;
+        
+        &-img {
+            // MUST BE CHANGED ! MUST BE CHANGED ! MUST BE CHANGED !
+            border: 2px solid $main-light;
+            object-fit: cover;
+            height: 30rem;
+            width: 30rem;
+
+            border-radius: 3rem;
+
+            
+        }
     }
 
     &__title-desc {
@@ -55,6 +69,8 @@
         display: flex;
         flex-direction: column;
         width: 35rem;
+
+        cursor: default;
 
         margin-left: 1.5rem;
         margin-top: 1.8rem;
@@ -71,6 +87,8 @@
         margin-bottom: 1rem;
         min-height: 15rem;
         margin-right: auto;
+
+        cursor: pointer;
         
         
         flex: 0;
@@ -87,6 +105,7 @@
 
     &__desc {
         // border: 1px solid black;
+        cursor: default;
         
         font-family: "DM Mono", monospace;
         font-size: 1.6rem;
@@ -106,7 +125,7 @@
         &--byline {
             padding-top: 1rem;
             font-weight: 700;
-        }
+        } 
     }
 
     &__next {
@@ -141,6 +160,7 @@
         // border: 1px solid black;
         font-size: 2rem;
 
+        cursor: default;
         
         display: flex;
         flex-direction: column;

@@ -3,7 +3,7 @@
 .index {
     // border: 1px yellow solid;
     display: grid;
-    grid-template-rows: 1fr minmax(20rem, 5fr) 1fr;
+    grid-template-rows: 1fr minmax(20rem, 8fr) 1fr;
     grid-template-areas: 
         "navbar"
         "main"
@@ -29,6 +29,14 @@
         margin-bottom: auto;
     }
 
+    &__dotted-1 {
+        
+        
+        &-img {
+
+        }
+    }
+
     &__main {
         grid-area: main;
         display: flex;
@@ -40,11 +48,11 @@
         }
 
         &-grid {
-            border: 2px solid black;
+            // border: 2px solid black;
         }
 
         &-blog {
-            border: 2px solid black;
+            // border: 2px solid black;
 
         }
     }
