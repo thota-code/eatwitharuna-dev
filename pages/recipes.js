@@ -18,7 +18,7 @@ import GridForm from 'components/RecipesGrid/RecipesGridForm';
 
 import s from 'styles/recipes.module.scss';
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     const recipes = await getAllRecipes();
 
 	return {

@@ -20,7 +20,7 @@ const RecipeTile = React.forwardRef(({ recipe, href, onClick }, ref) => {
 			<a ref={ref} href={href} onClick={onClick} className={s["a-Tile"]}>
 				<div className={s["grid__main-tile"]}>
 					<div className={s["grid__main-tile--image"]}>
-						<img src={recipe.mainImageUrl} alt="" className={s["grid__main-tile--image-img"]}>{images[0]}</img>
+						<img src={recipe.mainImageUrl + '?h=500&w=500'} alt="" className={s["grid__main-tile--image-img"]}>{images[0]}</img>
 					</div>
 
 					<div className={s["grid__main-tile-info"]}>
