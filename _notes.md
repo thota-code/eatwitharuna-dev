@@ -135,7 +135,7 @@ AuxWork (cont.)
     -
     Sanity Image Pipeline
     MoreRecipes Comp following SingleRecipe
-    cont. Mehendi
+    cont. Mehendi / diff one on [recipe].js
     Aux Pages (social / about)
     getStaticProps for recipes.js
     AUTH Callback
@@ -143,4 +143,4 @@ AuxWork (cont.)
     FIX !!!! mehendi for FeatRec. Maybe put it in flexbox of details + next, and use that to always be aligned. Position ABSOLUTE BADDDD
     dotted line under featrec
     USE SECOND RECIPES IMAGE IN SINGLEREC
-    
+    add category as prop to RecipesGrid, for bottom of singlerecipe (category +)

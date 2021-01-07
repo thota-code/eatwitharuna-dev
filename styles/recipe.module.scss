@@ -13,6 +13,20 @@
         margin-bottom: auto;
     }
 
+    &__Mcorner {
+        overflow: hidden;
+
+        position: absolute;
+        top: -6rem;
+        left: -6rem;
+        
+        z-index: -10000;
+        
+        &-img {
+            transform: rotate(90deg);
+        }
+    }
+
     &__main {
         grid-area: main;
         margin-bottom: auto;

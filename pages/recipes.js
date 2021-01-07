@@ -41,6 +41,7 @@ const Recipes = ({ recipes }) => {
     // const [gridRecipes, setGridRecipes] = useState(recipes);
     const gridRecipes = useRef(recipes);
 
+
     // handlers  
     const handleSearch = (e) => {
         e.preventDefault();

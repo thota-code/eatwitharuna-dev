@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Image from 'next/image';
+
 import s from "styles/recipe.module.scss";
 
 import { numToWord } from 'utilities/util';
@@ -6,6 +8,7 @@ import { numToWord } from 'utilities/util';
 import Navbar from 'components/Navbar/Navbar';
 import SingleRecipeCard from 'components/SingleRecipeCard/SingleRecipeCard';
 import Footer from 'components/Footer/Footer';
+import RecipesGrid from 'components/RecipesGrid/RecipesGrid';
 
 import { getAllRecipes, getSingleRecipe } from 'sanityio/api';
 
@@ -64,6 +67,15 @@ const Recipe = ({ currentRecipe }) => {
 					/>
 				</Head>
 
+				<div className={s["recipe__Mcorner"]}>
+					<Image
+						src="/MCorner.svg"
+						className={s["recipe__Mcorner-img"]}
+						height={200}
+						width={200}
+					/>
+				</div>
+
 				<div className={s["recipe"]}>
 					<Navbar className={s["recipe__nav"]} />
 
@@ -73,6 +85,11 @@ const Recipe = ({ currentRecipe }) => {
 							cR={currentRecipe[0]}
 						/>
 						{instructionSerialize()}
+
+						<div className={s["recipe__main--more"]}>
+							{/* <p className={s["a"]}>{currentRecipe[0].recipeCategory}+</p> */}
+							<RecipesGrid numRecipes={3} recipes={currentRecipe} />
+						</div>
 					</main>
 
 					<footer className={s["recipe__footer"]}>
