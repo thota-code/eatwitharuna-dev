@@ -87,8 +87,8 @@ const Recipe = ({ currentRecipe }) => {
 						{instructionSerialize()}
 
 						<div className={s["recipe__main--more"]}>
-							{/* <p className={s["a"]}>{currentRecipe[0].recipeCategory}+</p> */}
-							<RecipesGrid numRecipes={3} recipes={currentRecipe} />
+							<span className={s["recipe__main--more-text"]}>more {currentRecipe[0].recipeCategory}s</span>
+							<RecipesGrid numRecipes={5} moreRec={true} recipes={currentRecipe} />
 						</div>
 					</main>
 

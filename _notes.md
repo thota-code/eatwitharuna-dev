@@ -18,7 +18,7 @@
         |= button.module.scss
 
 ---
-todo 
+<!-- todo 
 
 - featRecipe API / getAllFeaturableRecipes => allow params for /snacks only! featRecipe/
 - assigned color functions / option in SANITYIO for colors - featured & single 
@@ -61,10 +61,10 @@ LOAD SANITY DATA!
 ART -
     mehendi stock art, placed at edges of pages
     dotted lines
-    svg for next featured recipe, 
+    svg for next featured recipe,  -->
 
 --- 
-
+<!-- 
 division of tasks
 
 JAN 1st - 
@@ -96,9 +96,9 @@ JAN 4th -
 
     'COMPLETED'
 
---- 
+---  -->
 
-regrouping on JAN 5th! 
+<!-- regrouping on JAN 5th! 
 
 remainders - 
     SANITYIO USER SCHEMA 
@@ -119,17 +119,17 @@ remainders -
     FOOTER LINKS
         -
     AUTO IMAGE PIPELINE SANITYIO
-    SANITYIO DATA LOAD - RECIPES + INGREDIENTS + ETC
+    SANITYIO DATA LOAD - RECIPES + INGREDIENTS + ETC -->
 
 
-AuxWork
+<!-- AuxWork -->
     <!-- Mehendi -->
     <!-- SVG & ICONS  -->
     <!-- Demo Logo -->
     <!-- Footer Links -->
     <!-- Login page sizing + footer fixes -->
 
-AuxWork (cont.)
+<!-- AuxWork (cont.)
     Blog Divs
     Index MoreRecipes Comp
     -
@@ -137,10 +137,27 @@ AuxWork (cont.)
     MoreRecipes Comp following SingleRecipe
     cont. Mehendi / diff one on [recipe].js
     Aux Pages (social / about)
-    getStaticProps for recipes.js
+    <!-- getStaticProps for recipes.js -->
     AUTH Callback
     figure out colors for featrec
     FIX !!!! mehendi for FeatRec. Maybe put it in flexbox of details + next, and use that to always be aligned. Position ABSOLUTE BADDDD
     dotted line under featrec
     USE SECOND RECIPES IMAGE IN SINGLEREC
     add category as prop to RecipesGrid, for bottom of singlerecipe (category +)
+    doesnt log in  -->
+
+Jan8FriORDER
+    <!-- Sanity Image Pipeline -->
+    <!-- MoreRecipes (by category, after SingleRecipe); -->
+    Aux Pages (socials / about)
+    AUTH - callback (change to index), redirect upon sign in (to index)
+    Colors for Recipes, in Schema
+    FeatRec Mehendi fix, flexbox with details + next (currently pos absoluted);
+    dotted svg under featRec, better way to implement?
+    Second Recipes Image in SingleRec, or a next button on images to cycle through;
+    Fuzzy search (navbar) => modal + full search
+    Pantry
+    Recipes (search, filter, sort logic refactor);
+    Difficulty bar on Single Recipe
+    Sanity schema, array of images
+    alt, html accessibility 

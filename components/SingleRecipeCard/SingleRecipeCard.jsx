@@ -21,9 +21,7 @@ export default function SingleRecipe({ cR }) {
             allIng,
 			summary,
 			difficulty,
-
-
-            testImageUrl,
+            mainImageUrl,
 		} = currentRecipe;
 
     const tagsline = () => {
@@ -102,7 +100,7 @@ export default function SingleRecipe({ cR }) {
 						<div className={s["recipe__head-image"]}>
 							{/* TESTIMAGEURL NOW! */}
 							<Image
-								src={testImageUrl}
+								src={mainImageUrl}
 								alt=""
 								className={s["recipe__head-image-img"]}
 								width={550}

@@ -1,3 +1,5 @@
+@import 'styles/variables.scss';
+
 .recipe {
     display: grid;
     grid-template-rows: 0.5fr minmax(20rem, 5fr) 1fr;
@@ -30,6 +32,18 @@
     &__main {
         grid-area: main;
         margin-bottom: auto;
+
+        &--more {
+            position: relative;
+            top: 10rem;
+            margin: 2rem 15rem;
+            padding: 2rem;
+
+            &-text {
+                font-size: 5rem;
+                // margin-left: 15rem;
+            }
+        }
     }
 
     &__footer {

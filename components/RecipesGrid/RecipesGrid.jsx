@@ -13,14 +13,14 @@ import { toHourRound } from 'utilities/util';
 const RecipeTile = React.forwardRef(({ recipe, href, onClick }, ref) => {
 	if (!recipe) return (<div className={s["grid__main-tile-empty"]}></div>);
 
-	const { title, totalTime, images, recipeCategory } = recipe;
+	const { title, totalTime, recipeCategory } = recipe;
 	
     return (
 		<>
 			<a ref={ref} href={href} onClick={onClick} className={s["a-Tile"]}>
 				<div className={s["grid__main-tile"]}>
 					<div className={s["grid__main-tile--image"]}>
-						<img src={recipe.mainImageUrl + '?h=500&w=500'} alt="" className={s["grid__main-tile--image-img"]}>{images[0]}</img>
+						<img src={recipe.mainImageUrl + '?h=500&w=500'} alt="" className={s["grid__main-tile--image-img"]}></img>
 					</div>
 
 					<div className={s["grid__main-tile-info"]}>
@@ -44,9 +44,8 @@ const RecipeTile = React.forwardRef(({ recipe, href, onClick }, ref) => {
 
 const RecipesGrid = ({ recipes={}, numRecipes=100, moreRec=false }) => {
 	const [currRecipes, setCurrRecipes] = useState(recipes);
-	// console.log('insideGrid ', recipes);
 	if (currRecipes !== recipes) setCurrRecipes(recipes);
-
+	
 	const allLink = () => (
 		<Link href="/recipes">
 			<span className={s["grid__moreRec"]}>all recipes →</span>
