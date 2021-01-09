@@ -161,3 +161,5 @@ Jan8FriORDER
     Difficulty bar on Single Recipe
     Sanity schema, array of images
     alt, html accessibility 
+    navbar, footer, grid layout in _document / _app ?
+    
