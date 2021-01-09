@@ -152,10 +152,10 @@ Jan8FriORDER
     <!-- Aux Pages (socials / about) -->
     <!-- FeatRec Mehendi fix, flexbox with details + next (currently pos absoluted); -->
     <!-- dotted svg under featRec, better way to implement? -->
-    Pantry
     <!-- Difficulty bar on Single Recipe -->
-    Recipes (search, filter, sort logic refactor);
     <!-- AUTH - callback (change to index), redirect upon sign in (to index)e -->
+    Pantry
+    Recipes (search, filter, sort logic refactor);
     Colors for Recipes, in Schema
     Second Recipes Image in SingleRec, or a next button on images to cycle through;
     Fuzzy search (navbar) => modal + full search
