@@ -127,16 +127,17 @@ const FeaturedRecipe = ({ recipes }) => {
 							{toHourRound(fR.totalTime.totalHours)}
 						</span>
 					</div>
+
+					<div className={s["featured__info-mehendi"]}>
+						<Image
+							src="/MLarge.svg"
+							className={s["featured__info-mehendi-img"]}
+							height={270}
+							width={270}
+						/>
+					</div>
 				</div>
 
-				<div className={s["featured__Mlarge"]}>
-					<Image
-						src="/MLarge.svg"
-						className={s["featured__Mlarge-img"]}
-						height={270}
-						width={270}
-					/>
-				</div>
 			</div>
 			// </Link>
 		);

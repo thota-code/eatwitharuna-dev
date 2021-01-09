@@ -48,21 +48,21 @@ export default function Home({ featRecipes }) {
 
 			<Navbar className={s["index__nav"]} />
 
+			<div className={s["index__dotted-1"]}>
+				<Image
+					src="/DottedLine.svg"
+					className={s["index__dotted-1-img"]}
+					height={200}
+					width={800}
+				/>
+			</div>
+
 			<main className={s["index__main"]}>
 				<div className={s["index__main-featured"]}>
 					{/* <Link href={recipeHref} passHref> */}
 					<FeaturedRecipe recipes={featRecipes} />
 					{/* </Link> */}
 				</div>
-
-				{/* <section className={s["index__dotted-1"]}> */}
-					<Image
-						src="/DottedLine.svg"
-						className={s["index__dotted-1-img"]}
-						height={7}
-						width={5}
-					/>
-				{/* </section> */}
 
 				<div className={s["index__main-grid"]}>
 					<RecipesGrid numRecipes={8} recipes={featRecipes} moreRec={true} />

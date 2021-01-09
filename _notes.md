@@ -149,17 +149,17 @@ remainders -
 Jan8FriORDER
     <!-- Sanity Image Pipeline -->
     <!-- MoreRecipes (by category, after SingleRecipe); -->
-    Aux Pages (socials / about)
-    AUTH - callback (change to index), redirect upon sign in (to index)
+    <!-- Aux Pages (socials / about) -->
+    <!-- FeatRec Mehendi fix, flexbox with details + next (currently pos absoluted); -->
+    <!-- dotted svg under featRec, better way to implement? -->
+    Pantry
+    <!-- Difficulty bar on Single Recipe -->
+    Recipes (search, filter, sort logic refactor);
+    <!-- AUTH - callback (change to index), redirect upon sign in (to index)e -->
     Colors for Recipes, in Schema
-    FeatRec Mehendi fix, flexbox with details + next (currently pos absoluted);
-    dotted svg under featRec, better way to implement?
     Second Recipes Image in SingleRec, or a next button on images to cycle through;
     Fuzzy search (navbar) => modal + full search
-    Pantry
-    Recipes (search, filter, sort logic refactor);
-    Difficulty bar on Single Recipe
     Sanity schema, array of images
     alt, html accessibility 
-    navbar, footer, grid layout in _document / _app ?
+    navbar, footer, grid layout in _document / _app ? ////// shared layout
     

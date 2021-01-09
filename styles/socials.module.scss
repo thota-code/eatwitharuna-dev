@@ -48,11 +48,16 @@
 
                 transition: all .2s;
 
+                &-img {
+                    // fill: $main-light;
+                }
+
                 &:hover {
                     // text-decoration: underline;
                     cursor: pointer;
 
                     background-color: $main-orange;
+                    // color: $main-light;
                     padding: 1rem;
                 }
             }

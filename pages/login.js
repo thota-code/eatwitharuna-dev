@@ -1,5 +1,7 @@
 import { Magic } from 'magic-sdk';
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import s from 'styles/login.module.scss';
 import Navbar from 'components/Navbar/Navbar';
@@ -17,6 +19,8 @@ const Join = () => {
 	const [step1, setStep1] = useState("login__instr-1-light");
 	const [step2, setStep2] = useState("login__instr-2-light");
 	const [step3, setStep3] = useState("login__instr-3-light");
+
+	const Router = useRouter();
 
 
 	const handleForm = e => {
@@ -64,11 +68,11 @@ const Join = () => {
 				redirectURI: `${process.env.NEXT_PUBLIC_SERVER_URL}/callback`,
 			});
 
-			console.log(didToken);
-			// authenticateWithServer(didToken);
+			// console.log(didToken);
+			authenticateWithServer(didToken);
 		} catch (error) {
 			setDisabled(false); // re-enable login button - user may have requested to edit their email
-			console.log(error);
+			// console.log(error);
 		}
     }
     
@@ -85,17 +89,22 @@ const Join = () => {
 
     return (
 			<div className={s["LOGIN"]}>
-				<Navbar className={s["login__navbar"]} />
+				<Head>
+					<title>Login</title>
+					<meta
+						name="viewport"
+						content="initial-scale=1.0, width=device-width"
+					/>
+				</Head>
 
+				<Navbar className={s["login__navbar"]} />
 				<div className={s["login"]}>
 					{/* <span className={s["login-text"]}>login/register</span> */}
 					<div className={s["login__instr"]}>
 						<span className={s[`${step1}`]}>
 							sign up or log in with your email
 						</span>
-						<span className={s[`${step2}`]}>
-							expect a magic link!
-						</span>
+						<span className={s[`${step2}`]}>expect a magic link!</span>
 						<span className={s[`${step3}`]}>
 							open it on any device, and you will be logged in here
 						</span>
@@ -127,7 +136,6 @@ const Join = () => {
 						</form>
 					</div>
 				</div>
-
 				<div className={s["login__footer"]}>
 					<Footer />
 				</div>

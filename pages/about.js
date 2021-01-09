@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Head from 'next/head';
 
 import s from 'styles/about.module.scss';
 
@@ -11,6 +12,14 @@ const About = () => {
 
     return (
 			<div className={s["about__page"]}>
+				<Head>
+					<title>About</title>
+					<meta
+						name="viewport"
+						content="initial-scale=1.0, width=device-width"
+					/>
+				</Head>
+
 				<Navbar />
 
 				<div className={s["about"]}>
@@ -36,7 +45,7 @@ const About = () => {
 									}
 									target={"_blank"}
 								>
-								    Naveen T
+									Naveen T
 								</a>
 							</span>
 							, and is seeded with test data.
@@ -106,13 +115,15 @@ const About = () => {
 									feature roadmap:{" "}
 								</span>{" "}
 								<br />
+								- alt, accessibility for ALL pages <br />
 								- multiple recipe images <br />
+								- responsive / mobile friendly <br />
 								- fuzzy main search, through all recipes & steps <br />
 								- pantry ingredient lists <br />
-								- saved recipes implementation <br />
-								- username & comments <br />
 							</div>
 							<div className={s["about__main-roadmap-right"]}>
+								- saved recipes implementation <br />
+								- username & comments <br />
 								- SSO (w/ Gmail, Facebook, Outlook) <br />
 								- difficulty bar for SingleRecipe <br />
 								- related recipes under SingleRecipe <br />

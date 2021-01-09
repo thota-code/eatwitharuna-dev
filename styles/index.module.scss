@@ -30,9 +30,15 @@
     }
 
     &__dotted-1 {
-        
-        
+        position: absolute;
+        top: 65rem;
+        left: 7rem;
+
+        // width: 900rem;
+
         &-img {
+            // position: absolute;
+            // top: 2rem;
 
         }
     }
@@ -49,6 +55,8 @@
 
         &-grid {
             // border: 2px solid black;
+            position: relative;
+            bottom: 15rem;
         }
 
         &-blog {
