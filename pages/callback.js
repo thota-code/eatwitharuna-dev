@@ -41,7 +41,7 @@ const Callback = () => {
 	};
 
 	return (
-        <h2>one sec.</h2>
+        <h1>WELCOME!</h1>
 	);
 };
 

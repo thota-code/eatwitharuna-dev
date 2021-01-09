@@ -1,3 +1,5 @@
+@import 'styles/variables.scss';
+
 .recipe {
     display: grid;
     grid-template-rows: 0.5fr minmax(20rem, 5fr) 1fr;
@@ -13,9 +15,35 @@
         margin-bottom: auto;
     }
 
+    &__Mcorner {
+        overflow: hidden;
+
+        position: absolute;
+        top: -6rem;
+        left: -6rem;
+        
+        z-index: -10000;
+        
+        &-img {
+            transform: rotate(90deg);
+        }
+    }
+
     &__main {
         grid-area: main;
         margin-bottom: auto;
+
+        &--more {
+            position: relative;
+            top: 10rem;
+            margin: 2rem 15rem;
+            padding: 2rem;
+
+            &-text {
+                font-size: 5rem;
+                // margin-left: 15rem;
+            }
+        }
     }
 
     &__footer {

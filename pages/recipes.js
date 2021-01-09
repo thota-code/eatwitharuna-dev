@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image';
+
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useRef, useReducer } from 'react';
 import useSWR from 'swr';
@@ -16,7 +18,7 @@ import GridForm from 'components/RecipesGrid/RecipesGridForm';
 
 import s from 'styles/recipes.module.scss';
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     const recipes = await getAllRecipes();
 
 	return {
@@ -38,6 +40,7 @@ const Recipes = ({ recipes }) => {
     const [filterOptions, setFilterOptions] = useState('');
     // const [gridRecipes, setGridRecipes] = useState(recipes);
     const gridRecipes = useRef(recipes);
+
 
     // handlers  
     const handleSearch = (e) => {
@@ -315,18 +318,26 @@ const Recipes = ({ recipes }) => {
 					/>
 				</Head>
 
+				<div className={s["recipes__Mcorner"]}>
+					<Image
+						src="/MLarge.svg"
+						className={s["recipes__Mcorner-img"]}
+						height={200}
+						width={200}
+					/>
+				</div>
 
 				<Navbar className={s["recipes__nav"]} />
 
 				<main className={s["recipes__main"]}>
-                    <span className={s["recipes__main-title"]}>all recipes</span>
+					<span className={s["recipes__main-title"]}>all recipes</span>
 					<GridForm
 						handleSearch={handleSearch}
 						handleSort={handleSort}
 						handleSortDir={handleSortDir}
 						handleFilterMain={handleFilterMain}
-                        handleFilterOptions={handleFilterOptions}
-                        handleReset={handleReset}
+						handleFilterOptions={handleFilterOptions}
+						handleReset={handleReset}
 					/>
 					<RecipesGrid recipes={gridRecipes.current} numRecipes={12} />
 				</main>

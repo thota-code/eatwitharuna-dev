@@ -24,6 +24,16 @@ $image-side: 15rem;
     grid-template-rows: repeat(auto-fill, minmax(20rem, 1fr));
     grid-gap: 2rem;
 
+    &__moreRec {
+        font-size: 5rem;
+        margin: auto;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     &__main {
         &-tile-empty {
             font-family: 'DM Mono', monospace;
@@ -83,6 +93,14 @@ $image-side: 15rem;
                 max-width: $image-side;
 
                 margin-left: 2rem;
+
+                &-img {
+                    // MUST CHANGE MUST CHANGE MUST CHANGE
+                    height: $image-side;
+                    width: $image-side;
+
+                    object-fit: cover;
+                }
             }
 
             &-info {

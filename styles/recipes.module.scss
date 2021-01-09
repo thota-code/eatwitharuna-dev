@@ -17,6 +17,12 @@
             font-size: 4rem;
             margin-left: 10rem;
         }
+
+        &--more-text {
+            margin: auto;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2rem;
+        }
     }
 
     &__footer {
@@ -24,4 +30,20 @@
     }
 
 
+    &__Mcorner {
+        // border: 2px solid black;
+        // max-height: 20rem;
+        // max-width: 20rem;
+        overflow: hidden;
+
+        position: absolute;
+        top: -8rem;
+        left: -8rem;
+        
+        z-index: -10000;
+        
+        &-img {
+            transform: rotate(45deg);
+        }
+    }
 }

@@ -6,8 +6,9 @@
 }
 
 .featured {
+    // border: 1px solid black;
 
-    background: linear-gradient($med-blue 60%, $main-light 40%);
+    background: linear-gradient($med-blue 50%, $main-light 50%);
     margin: 0rem 7rem 8rem;
     min-height: 40rem;
 
@@ -17,6 +18,7 @@
 
     &__tags {
         // border: 1px solid black;
+        cursor: default;
 
         font-family: 'DM Sans', sans-serif;
         font-weight: 700;
@@ -38,16 +40,29 @@
     }
 
     &__image {
-        border: 1px solid black;
+        cursor: pointer;
+        
         background-color: $main-dark;
-
+        
         height: 30rem;
         width: 30rem;
         // margin: 4rem 0 1rem 7rem;
-
+        
         border-radius: 3rem;
-
+        
         flex: none;
+        
+        &-img {
+            // MUST BE CHANGED ! MUST BE CHANGED ! MUST BE CHANGED !
+            border: 2px solid $main-light;
+            object-fit: cover;
+            height: 30rem;
+            width: 30rem;
+
+            border-radius: 3rem;
+
+            
+        }
     }
 
     &__title-desc {
@@ -56,8 +71,10 @@
         flex-direction: column;
         width: 35rem;
 
+        cursor: default;
+
         margin-left: 1.5rem;
-        margin-top: 1.8rem;
+        margin-top: 3rem;
     }
 
     &__title {
@@ -70,6 +87,9 @@
         line-height: 5rem;
         margin-bottom: 1rem;
         min-height: 15rem;
+        margin-right: auto;
+
+        cursor: pointer;
         
         
         flex: 0;
@@ -86,6 +106,7 @@
 
     &__desc {
         // border: 1px solid black;
+        cursor: default;
         
         font-family: "DM Mono", monospace;
         font-size: 1.6rem;
@@ -105,15 +126,17 @@
         &--byline {
             padding-top: 1rem;
             font-weight: 700;
-        }
+        } 
     }
 
     &__next {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        // position: relative;
-        // bottom: 20rem;
-        // left: 52rem;
+        // border: 3px solid black;
+
         font-family: 'DM Sans', sans-serif;
         color: $main-dark;
         
@@ -122,12 +145,15 @@
         margin-bottom: auto;
 
         position: relative;
-        bottom: 10rem;
+        bottom: 6rem;
+
+        padding: 0.2rem;
         
         cursor: pointer;
 
         &:hover {
             color: $main-light;
+            background-color: $main-dark;
         }
     }
 
@@ -135,16 +161,20 @@
         // border: 1px solid black;
         font-size: 2rem;
 
+        cursor: default;
         
         display: flex;
         flex-direction: column;
+        // justify-content: space-evenly;
+        // align-items: space-between;
         align-self: center;
 
         align-items: flex-end;
 
+
         margin-left: auto;
-        position: relative;
-        bottom: 5rem;
+        // position: relative;
+        // bottom: 2rem;
 
         padding: 2rem;
         
@@ -155,15 +185,52 @@
             font-weight: bold;
             padding-right: 2rem;
 
+            position: relative;
+            top: 5rem;
         }
-
+        
         &-serves--num,
         &-ing--num,
         &-time--num {
-            font-style: italic;
+        font-style: italic;
             color: $main-light;
 
+            position: relative;
+            top: 5rem;
         }
 
+        &-mehendi {
+            position: relative;
+            bottom: 7.9rem;
+            clip-path: polygon(0 49%, 100% 49%, 100% 100%, 0% 100%);
+
+            &-img {
+                transform: rotate(90deg);
+            }
+        }
+
+    }
+
+    &__Mlarge {
+        position: absolute;
+        right: 9rem;
+        top: 40rem;
+        // border: 1px solid black;
+
+        // clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+        // clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
+        clip-path: polygon(0 49%, 100% 49%, 100% 100%, 0% 100%);
+
+
+
+        max-height: 50rem;
+        max-width: 50rem;
+        overflow: hidden;
+
+        // z-index: -10000;
+
+        &-img {
+            
+        }
     }
 }

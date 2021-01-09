@@ -28,6 +28,17 @@
             line-height: 87%;
 
             word-spacing: 9999rem; // trick to single word line
+            padding-left: 2rem;
+            border-left: 9px dotted $main-dark;
+
+            cursor: default;
+
+            transition: all .3s;
+
+            &:hover {
+                border-left: 9px dotted $main-light;
+            }
+
         }
 
         &-links {
@@ -45,6 +56,10 @@
                 line-height: 2.2rem;
                 color: $main-light;
                 text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
 
             &--pages,
@@ -54,5 +69,28 @@
                 align-items: center;
             }
         }
+    }
+
+    &__Mlarge {
+        position: absolute;
+        right: 5rem;
+        margin-bottom: 25rem;
+        // border: 1px solid yellow;
+
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    
+
+
+
+        max-height: 50rem;
+        max-width: 50rem;
+        overflow: hidden;
+
+        z-index: -10000;
+
+        &-img {
+            transform: rotate(82deg);
+        }
+
     }
 }

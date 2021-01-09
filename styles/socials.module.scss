@@ -1,0 +1,67 @@
+@import 'styles/variables.scss';
+
+.socials {
+    &__page {
+        display: grid;
+        grid-template-rows: 1fr minmax(5rem, 2fr) 1fr;
+        row-gap: 2rem;
+    }
+
+
+    // border: 5px solid $main-dark;
+    cursor: default;
+    margin: 2rem 10rem;
+    border-radius: 2rem;
+    min-height: 5rem;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 5rem;
+    line-height: 6rem;
+
+    transition: all .2s;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    &__main {
+
+        &-links {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            margin: auto;
+
+            min-width: 50rem;
+            min-height: 30rem;
+
+            &-email,
+            &-facebook,
+            &-twitter {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                color: $main-dark;
+
+                transition: all .2s;
+
+                &-img {
+                    // fill: $main-light;
+                }
+
+                &:hover {
+                    // text-decoration: underline;
+                    cursor: pointer;
+
+                    background-color: $main-orange;
+                    // color: $main-light;
+                    padding: 1rem;
+                }
+            }
+
+        }
+    }
+}

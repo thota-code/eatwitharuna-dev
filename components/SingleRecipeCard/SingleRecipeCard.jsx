@@ -21,9 +21,7 @@ export default function SingleRecipe({ cR }) {
             allIng,
 			summary,
 			difficulty,
-
-
-            testImageUrl,
+            mainImageUrl,
 		} = currentRecipe;
 
     const tagsline = () => {
@@ -60,12 +58,12 @@ export default function SingleRecipe({ cR }) {
 			);
 		}
 
-	const difficultyBar = () => {
+	// const difficultyBar = () => {
 
-		// return (
+	// 	return (
 
-		// );
-	};
+	// 	);
+	// };
 
     return (
 			<div className={s["recipe"]}>
@@ -96,13 +94,14 @@ export default function SingleRecipe({ cR }) {
 
 					<div className={s["recipe__head-diff-image-info"]}>
 						<div className={s["recipe__head-diff"]}>
-							{difficultyBar()}
+							{/* {difficultyBar()} */}
+							{currentRecipe.difficulty}
 						</div>
 
 						<div className={s["recipe__head-image"]}>
 							{/* TESTIMAGEURL NOW! */}
 							<Image
-								src={testImageUrl}
+								src={mainImageUrl}
 								alt=""
 								className={s["recipe__head-image-img"]}
 								width={550}

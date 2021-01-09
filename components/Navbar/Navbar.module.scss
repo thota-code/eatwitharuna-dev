@@ -29,28 +29,38 @@
 
         flex: 0;
         align-self: stretch;
-        // width: 20rem;
-        // margin-left: 1rem;
         padding-left: 1rem;
 
         transition: all .4s;
 
         &-demo {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-family: 'DM Mono', monospace;
-            font-style: normal;
+            font-style: italic;
             font-weight: 700;
-
-            position: relative;
-            bottom: 12rem;
-            right: 12rem;
             color: $main-light;
+
+            position: absolute;
+            top: 5rem;
+            left: 17rem;
+            
+            transition: all .3s;
+
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+                color: #524E65;
+            }
         }
 
         &:hover {
             border-left: 9px dotted $main-dark;
             cursor: pointer;
             
+            .nav__logo-demo {
+                color: $main-green;
+            }
         }
     }
 
