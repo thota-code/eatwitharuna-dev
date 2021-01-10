@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { useState, useEffect } from 'react';
+
 import Navbar from 'components/Navbar/Navbar';
 import FeaturedRecipe from 'components/FeaturedRecipe/FeaturedRecipe';
 import Footer from 'components/Footer/Footer';
@@ -29,6 +31,19 @@ export async function getStaticProps(ctx) {
 
 export default function Home({ featRecipes }) {
 //   const recipeHref = '/recipe/' + featuredRecipe.slug.current;
+	const [openState, setOpenState] = useState(false);
+
+	let style = openState ? {zIndex: '-1'} : {zIndex: '0'};
+
+	const handleOpen = e => {
+		e.preventDefault();
+		setOpenState(true);
+	};
+
+	const handleClose = e => {
+		e.preventDefault();
+		setOpenState(false);
+	}
 
   return (
 		<div className={s["index"]}>
@@ -46,7 +61,13 @@ export default function Home({ featRecipes }) {
 				/>
 			</div>
 
-			<Navbar className={s["index__nav"]} />
+			<Navbar
+				className={s["index__nav"]}
+				featRec={featRecipes}
+				openState={openState}
+				handleOpen={handleOpen}
+				handleClose={handleClose}
+			/>
 
 			<div className={s["index__dotted-1"]}>
 				<Image
@@ -57,8 +78,8 @@ export default function Home({ featRecipes }) {
 				/>
 			</div>
 
-			<main className={s["index__main"]}>
-				<div className={s["index__main-featured"]}>
+			<main className={s["index__main"]} style={style}>
+				<div className={s["index__main-featured"]} >
 					{/* <Link href={recipeHref} passHref> */}
 					<FeaturedRecipe recipes={featRecipes} />
 					{/* </Link> */}

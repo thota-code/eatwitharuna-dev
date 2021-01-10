@@ -118,7 +118,7 @@ const About = () => {
 								- alt, accessibility for ALL pages <br />
 								- multiple recipe images <br />
 								- responsive / mobile friendly <br />
-								- fuzzy main search, through all recipes & steps <br />
+								- main-search - on all pages, click outside to close, refactor
 								- pantry ingredient lists <br />
 							</div>
 							<div className={s["about__main-roadmap-right"]}>

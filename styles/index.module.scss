@@ -30,6 +30,8 @@
     }
 
     &__dotted-1 {
+        z-index: -100;
+        
         position: absolute;
         top: 65rem;
         left: 7rem;

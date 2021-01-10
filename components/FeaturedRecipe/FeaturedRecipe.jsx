@@ -60,7 +60,7 @@ const FeaturedRecipe = ({ recipes }) => {
 	// console.log(fR.mainImageUrl + '?h=350&w=350')
 
     return (
-			<div className={s["featured"]}>
+			<div className={s["featured"]} >
 				{/* <div className={s["featured__visual-div"]} /> */}
 				<div className={s["featured__tags"]}>
 					<span className={s["featured__tags--diet"]}>
