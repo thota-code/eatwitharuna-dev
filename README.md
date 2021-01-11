@@ -1,4 +1,4 @@
-<h1 align='center'>- eat with aruna -</h1>
+<h1 align='center'>- eat with aruna (dev) -</h1>
 <!-- ### recipes, blogs and more from ___Aruna T___. -->
 
 <div align="center">
@@ -21,11 +21,11 @@
 
 ## Table of Contents:
 - [Features / Usage](#Features)
-- [Images](#Images)
 - [Technologies](#Technologies)
     - [Motivations](#Motivations)
     - [Stack](#Stack)
     - [Recipe Schema](#Schema)
+- [Images](#Images)
 - [Future](#Future)
 
 ![main](images/Main.png)
@@ -70,13 +70,6 @@
 
 ### ___Social___
 - Social links - Email, Facebook, Twitter
-<br />
-
----
-## Images 
-
-
-<br />
 
 ---
 
@@ -93,10 +86,10 @@ When beginning the project, I had a few core motivations that dictated the tech 
 - ___Sanity.io___ used as headless CMS, with `Sanity Studio` used  to add ingredients, recipes and blogs. `Studio` is a fully customizable React app, with a very simple interface to manage data - adding content simply through forms. Schema for recipes and ingredients set up, with `GROQ` queries to fetch from Sanity API.
 - ___[Magic.link](magic.link)___ for a simple, passwordless authentication cycle. Stores JWT Token for extended sessions.
 
-### ___Recipe Schema___
+### ___Schema___
 `Sanity recipe schema`:
 
-```
+``` jsonc
 export default {
 	name: "recipe",
 	type: "document",
@@ -463,6 +456,25 @@ export default {
 ```
 
 ---
+## Images 
+![Index page](images/Index.jpeg)
+<br />
+
+![Search](images/Search.png)
+<br />
+
+![Recipes page](images/Recipes.jpeg)
+![Recipes form](images/RecipesForm.png)
+![Single Recipe page](images/SingleRecipe.jpeg)
+<br />
+
+![Join page](images/Login.jpeg)
+![About excerpt](images/About.jpeg)
+
+
+<br />
+
+---
 ## Future
 ### Feature Roadmap
 - *all 'upcoming' mentioned above*
@@ -477,6 +489,11 @@ export default {
 - difficulty bar for SingleRecipe
 - related recipes under SingleRecipe
 
-<!-- ![index](images/Index.jpeg) -->
 
+---
 
+Thank you for checking out ___eatwitharuna___! The official site will be up in the upcoming months; we will adding proper recipes & working through our feature roadmap for a fully realized version of the site by launch. 
+
+You can reach me through [Email](helloitsnaveen@gmail.com), [LinkedIn](https://www.linkedin.com/in/helloitsnaveen/) or anywhere else you catch me online `@helloitsnaveen`. 
+
+:) 
