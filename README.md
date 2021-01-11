@@ -13,7 +13,7 @@
 
 <div align="center">
   <sub>Built with ❤︎ by
-  <a href="https://www.linkedin.com/in/helloitsnaveen/">Naveen T</a> 
+  <a href="https://www.linkedin.com/in/helloitsnaveen/"><code>Naveen T</code></a> 
 </div>
 
 <br />
@@ -28,7 +28,7 @@
 - [Images](#Images)
 - [Future](#Future)
 
-![main](images/Main.png)
+![main](images/Main2.png)
 
 <br />
 
@@ -41,7 +41,7 @@
 - __Search__, launched from Navbar - opens modal with search input, with results rendered as individual search tiles. 
 
 ### ___Home Page___
-- ___Featured Recipe Tile___, automatically rotates through 'featurable' recipes, with a 'Next' button to change manually. Includes [recipe info](#schema) => main Image, summary & byline, three recipe tags(suitableForDiet, recipeHeft, recipeHealth), and prep info (recipeYield, numIngredients, totalTime)
+- ___Featured Recipe Tile___, automatically rotates through 'featurable' recipes, with a 'Next' button to change manually. Includes [recipe info](#Schema) => main Image, summary & byline, three recipe tags(suitableForDiet, recipeHeft, recipeHealth), and prep info (recipeYield, numIngredients, totalTime)
 
 - ___Featured Recipe Grid___, a recipe grid of only 'featurable' recipes, will be randomized. Includes totalTime, recipeCategory, title and a link to the recipes page.
 
@@ -457,7 +457,7 @@ export default {
 
 ---
 ## Images 
-![Index page](images/Index.jpeg)
+![Index page](images/Index2.jpeg)
 <br />
 
 ![Search](images/Search.png)
@@ -492,8 +492,8 @@ export default {
 
 ---
 
-Thank you for checking out ___eatwitharuna___! The official site will be up in the upcoming months; we will adding proper recipes & working through our feature roadmap for a fully realized version of the site by launch. 
+Thank you for checking out ___eatwitharuna-dev___! The official site will be up in the upcoming months; we will be adding proper recipes & working through our feature roadmap for a fully realized version of the site by launch. 
 
 You can reach me through [Email](helloitsnaveen@gmail.com), [LinkedIn](https://www.linkedin.com/in/helloitsnaveen/) or anywhere else you catch me online `@helloitsnaveen`. 
 
-:) 
+:) - Naveen

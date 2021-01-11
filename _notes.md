@@ -174,3 +174,4 @@ Jan10VercelDeployed:
     <!-- Footer fully bottom  -->
     onbackgroundclick of search modal, doesn't allow to select input
     <!-- about & social pushed down by modal, useRouter to check for /index/ page? -->
+    add optimizations to read me, including asset pipeline, single data fetch & static vs ssr 
