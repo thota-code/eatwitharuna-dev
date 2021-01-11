@@ -48,7 +48,9 @@ const Socials = () => {
 						<div className={s["socials__main-info"]}></div>
 					</div>
 				</div>
-				<Footer />
+
+
+				<Footer className={s["socials__footer"]} />
 			</div>
 		);
 }

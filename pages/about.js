@@ -79,7 +79,10 @@ const About = () => {
 							</span>
 							<br />- check out the code on{" "}
 							<span className={s["light"]}>
-								<a className={s["link-dark"]} href={"#"}>
+								<a
+									className={s["link-dark"]}
+									href={"https://github.com/helloitsnaveen/eatwitharuna-dev"}
+								>
 									Github (soon...)
 								</a>
 							</span>
