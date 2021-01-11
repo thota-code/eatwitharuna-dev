@@ -1,0 +1,17 @@
+@import 'styles/variables.scss';
+
+
+
+.pantry {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'DM Mono', monospace;
+    font-size: 2rem;
+
+    margin-top: 10rem;
+
+}

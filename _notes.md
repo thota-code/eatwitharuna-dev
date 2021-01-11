@@ -154,11 +154,17 @@ Jan8FriORDER
     <!-- dotted svg under featRec, better way to implement? -->
     <!-- Difficulty bar on Single Recipe -->
     <!-- AUTH - callback (change to index), redirect upon sign in (to index)e -->
+    <!-- Fuzzy search (navbar) => modal + full search ONLY DONE ON INDEX PAGE! -->
+    <!-- Colors for Recipes, in Schema -->
+    <!-- search onclick background, close -->
+    <!-- custom error page for pantry / change 404 -->
+    auto scroll featRec
+    hosting
+    readme
+    no body scroll on modal open
     Pantry
     Recipes (search, filter, sort logic refactor);
-    Colors for Recipes, in Schema
     Second Recipes Image in SingleRec, or a next button on images to cycle through;
-    Fuzzy search (navbar) => modal + full search
     Sanity schema, array of images
     alt, html accessibility 
     navbar, footer, grid layout in _document / _app ? ////// shared layout

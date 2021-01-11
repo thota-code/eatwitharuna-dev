@@ -21,7 +21,8 @@ export default function SingleRecipe({ cR }) {
             allIng,
 			summary,
 			difficulty,
-            mainImageUrl,
+			mainImageUrl,
+			recipeColor
 		} = currentRecipe;
 
     const tagsline = () => {
@@ -31,7 +32,17 @@ export default function SingleRecipe({ cR }) {
 						{recipeCategory} · {recipeHeft} · {diet}
 					</span>
 				);
-    }
+	}
+	
+	let style = recipeColor
+		? {
+				background: `linear-gradient(to right, ${recipeColor.value}, 95%, #DDD8C4 5%)`,
+		  }
+		: {
+				background: `linear-gradient(to right, #327158, 95%, #DDD8C4 5%)`,
+		  };
+
+	console.log(style);
 
     const ingredientsRender = () => {
 			return (
@@ -73,7 +84,7 @@ export default function SingleRecipe({ cR }) {
 						<div className={s["recipe__head-tagsline"]}>{tagsline()}</div>
 					</div>
 
-					<div className={s["recipe__head-main"]}>
+					<div className={s["recipe__head-main"]} style={style}>
 						<div className={s["recipe__head-main--ingredients"]}>
 							<span className={s["recipe__head-main--ingredients-title"]}>
 								ingredients

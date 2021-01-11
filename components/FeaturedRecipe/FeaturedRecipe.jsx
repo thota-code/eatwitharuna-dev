@@ -19,6 +19,23 @@ const FeaturedRecipe = ({ recipes }) => {
 	const length = recipes.length;
 	let nextIdx = idx + 1;
 
+	let style = fR.recipeColor
+		? {
+				background: `linear-gradient(${fR.recipeColor.value} 50%, #DDD8C4 50%)`,
+		  }
+		: {
+				background: `linear-gradient(#2B3A67 50%, #DDD8C4 50%)`,
+		  };
+	// console.log(fR.recipeColor);
+
+	// for continuous featrec, implement later
+	// useEffect(() => {
+	// 	const interval = setInterval(() => {
+	// 		console.log('a')
+	// 	}, 1000);
+
+    // 	return () => clearInterval(interval);
+	// }, [])
 
 	useEffect(() => {
 		setFR(recipes[idx]);
@@ -60,7 +77,10 @@ const FeaturedRecipe = ({ recipes }) => {
 	// console.log(fR.mainImageUrl + '?h=350&w=350')
 
     return (
-			<div className={s["featured"]} >
+			<div
+				className={s["featured"]}
+				style={style}
+			>
 				{/* <div className={s["featured__visual-div"]} /> */}
 				<div className={s["featured__tags"]}>
 					<span className={s["featured__tags--diet"]}>
@@ -74,7 +94,11 @@ const FeaturedRecipe = ({ recipes }) => {
 
 				<Link href={`/recipe/${fR.slug.current}`} className={s["a-Featured"]}>
 					<div className={s["featured__image"]}>
-						<img src={fR.mainImageUrl + '?h=500&w=500'} alt="" className={s["featured__image-img"]} />
+						<img
+							src={fR.mainImageUrl + "?h=500&w=500"}
+							alt=""
+							className={s["featured__image-img"]}
+						/>
 					</div>
 				</Link>
 
@@ -137,7 +161,6 @@ const FeaturedRecipe = ({ recipes }) => {
 						/>
 					</div>
 				</div>
-
 			</div>
 			// </Link>
 		);
