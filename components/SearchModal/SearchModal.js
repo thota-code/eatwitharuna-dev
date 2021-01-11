@@ -74,7 +74,8 @@ const SearchModal = ({ data, handleClose }) => {
 				</button> */}
 				{/* {open && ( */}
 					<ClientOnlyPortal selector="#modal">
-						<div className={s["backdrop"]} onClick={e => handleClose(e)}>
+						<div className={s["backdrop"]} >
+						{/* <div className={s["backdrop"]} onClick={e => handleClose(e)}> */}
 							<div className={s["search"]}>
 								<div className={s["search__input"]}>
 									<input

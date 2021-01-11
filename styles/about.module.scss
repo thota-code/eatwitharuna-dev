@@ -2,9 +2,24 @@
 
 .about {
     &__page {
-        display: grid;
-        grid-template-rows: 1fr minmax(10rem, 4fr) 1fr;
-        row-gap: 2rem;
+        // display: grid;
+        // grid-template-rows: 1fr minmax(10rem, 4fr) 1fr;
+        // grid-template-rows: minmax(10rem, 10fr) 1fr;
+        // row-gap: 2rem;
+    }
+
+    &__back a {
+        position: absolute;
+        color: $main-light;
+        text-decoration: none;
+        font-size: 3rem;
+
+        left: 10%;
+        top: 5%;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     background-color: $main-dark;
@@ -14,10 +29,10 @@
     border-radius: 2rem;
     line-height: 9rem;
     
-    min-height: 10rem;
+    height: 110rem;
 
     &__main {
-        padding: 10rem;
+        padding: 12rem;
         height: 100%;
 
         

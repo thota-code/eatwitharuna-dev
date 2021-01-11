@@ -19,7 +19,7 @@ const Socials = () => {
 					/>
 				</Head>
 
-				<Navbar />
+				{/* <Navbar /> */}
 				<div className={s["socials"]}>
 					<div className={s["socials__main"]}>
 						<div className={s["socials__main-links"]}>

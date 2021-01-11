@@ -20,18 +20,13 @@ const About = () => {
 					/>
 				</Head>
 
-				<Navbar />
+				{/* <Navbar /> */}
 
 				<div className={s["about"]}>
+					<div className={s["about__back"]}>
+						<Link href="/">← go back</Link>
+					</div>
 					<div className={s["about__main"]}>
-						{/* <span className={s["about__main-ewa"]}>eat with aruna</span>{' '}
-					is a recipe / food blog with recipes from Aruna T. this is the demo
-					site, designed and developed by Naveen T, and is seeded with test
-					data. built with Next.js and Sanity.io, with authentication using
-					Magic.link. mehendi svgs from --- check out the code on github. please
-					leave any bugs, ideas or feedback here: form input current roadmap: */}
-
-						{/* <span className={s["about__main-ewa"]}>eat with aruna</span> */}
 						<div className={s["about__main-intro"]}>
 							<span className={s["blue-italic"]}>eat with aruna</span> is a
 							recipe / food blog with recipes from{" "}
@@ -118,7 +113,7 @@ const About = () => {
 								- alt, accessibility for ALL pages <br />
 								- multiple recipe images <br />
 								- responsive / mobile friendly <br />
-								- main-search - on all pages, click outside to close, refactor
+								- main-search - on all pages, click to close <br />
 								- pantry ingredient lists <br />
 							</div>
 							<div className={s["about__main-roadmap-right"]}>
@@ -132,7 +127,7 @@ const About = () => {
 					</div>
 				</div>
 
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		);
 }

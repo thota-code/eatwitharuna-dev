@@ -156,8 +156,8 @@ Jan8FriORDER
     <!-- AUTH - callback (change to index), redirect upon sign in (to index)e -->
     <!-- Fuzzy search (navbar) => modal + full search ONLY DONE ON INDEX PAGE! -->
     <!-- Colors for Recipes, in Schema -->
-    <!-- search onclick background, close -->
     <!-- custom error page for pantry / change 404 -->
+    search onclick background, close
     auto scroll featRec
     hosting
     readme
@@ -169,3 +169,8 @@ Jan8FriORDER
     alt, html accessibility 
     navbar, footer, grid layout in _document / _app ? ////// shared layout
     
+
+Jan10VercelDeployed:
+    <!-- Footer fully bottom  -->
+    onbackgroundclick of search modal, doesn't allow to select input
+    <!-- about & social pushed down by modal, useRouter to check for /index/ page? -->
