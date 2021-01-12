@@ -83,8 +83,9 @@ When beginning the project, I had a few core motivations that dictated the tech 
 
 ### ___Stack___
 - ___[Next.js](next.js.org)___: Utilized SSR on all pages (except login, SSG for authentication API requests), for near instantaneous page loads. Index page and recipes make a single `getAllRecipes` Sanity API request in their `getStaticProps` methods, with all further data manipulation done client side. `_app.js` used for site-global navbar and footer, CSS Modules used for all page and component styling.
-- ___Sanity.io___ used as headless CMS, with `Sanity Studio` used  to add ingredients, recipes and blogs. `Studio` is a fully customizable React app, with a very simple interface to manage data - adding content simply through forms. Schema for recipes and ingredients set up, with `GROQ` queries to fetch from Sanity API.
+- ___[Sanity.io](sanity.io)___ used as headless CMS, with `Sanity Studio` used  to add ingredients, recipes and blogs. `Studio` is a fully customizable React app, with a very simple interface to manage data - adding content simply through forms. Schema for recipes and ingredients set up, with `GROQ` queries to fetch from Sanity API.
 - ___[Magic.link](magic.link)___ for a simple, passwordless authentication cycle. Stores JWT Token for extended sessions.
+- ___[Figma](figma.com)___ for design mockups before incorporating with JSX / CSS.
 
 ### ___Schema___
 `Sanity recipe schema`:
