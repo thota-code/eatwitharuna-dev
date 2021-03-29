@@ -15,7 +15,7 @@ export default function SingleRecipe({ cR }) {
 			recipeHeft,
 			suitableForDiet,
 			prepTime,
-			cookTime,
+			// cookTime,
 			totalTime,
             recipeIngredients,
             allIng,
@@ -24,6 +24,8 @@ export default function SingleRecipe({ cR }) {
 			mainImageUrl,
 			recipeColor
 		} = currentRecipe;
+
+		console.log(cR);
 
     const tagsline = () => {
         let diet = suitableForDiet === 'vegetarian' ? 'veg' : 'non-veg'; // extend for future cases
@@ -106,7 +108,7 @@ export default function SingleRecipe({ cR }) {
 					<div className={s["recipe__head-diff-image-info"]}>
 						<div className={s["recipe__head-diff"]}>
 							{/* {difficultyBar()} */}
-							{currentRecipe.difficulty}
+							{difficulty}
 						</div>
 
 						<div className={s["recipe__head-image"]}>
@@ -157,7 +159,7 @@ export default function SingleRecipe({ cR }) {
 									<span className={s["recipe__head-info--cook-text"]}>
 										cook time:{" "}
 										<span className={s["recipe__head-info--cook-num"]}>
-											{durationFix(cookTime.cookHours, cookTime.cookMinutes)}
+											{/* {durationFix(cookTime.cookHours, cookTime.cookMinutes)} */}
 										</span>
 									</span>
 								</div>
