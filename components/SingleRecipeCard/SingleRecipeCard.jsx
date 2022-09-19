@@ -10,35 +10,35 @@ export default function SingleRecipe({ cR }) {
     // functions for light color of times under image
 
     const [currentRecipe, setCurrentRecipe] = useState(cR);
-    const {
-			recipeCategory,
-			recipeHeft,
-			suitableForDiet,
-			prepTime,
+    // const {
+			// recipeCategory,
+			// recipeHeft,
+			// suitableForDiet,
+			// prepTime,
 			// cookTime,
-			totalTime,
-            recipeIngredients,
-            allIng,
-			summary,
-			difficulty,
-			mainImageUrl,
-			recipeColor
-		} = currentRecipe;
+			// totalTime,
+            // recipeIngredients,
+            // allIng,
+			// summary,
+			// difficulty,
+			// mainImageUrl,
+			// recipeColor
+		// } = currentRecipe;
 
-		console.log(cR);
+		// console.log(cR);
 
     const tagsline = () => {
-        let diet = suitableForDiet === 'vegetarian' ? 'veg' : 'non-veg'; // extend for future cases
+        let diet = currentRecipe?.suitableForDiet === 'vegetarian' ? 'veg' : 'non-veg'; // extend for future cases
         return (
 					<span>
-						{recipeCategory} · {recipeHeft} · {diet}
+						{currentRecipe?.recipeCategory || ""} · {currentRecipe?.recipeHeft || ""} · {currentRecipe?.suitableForDiet ? diet : ""}
 					</span>
 				);
 	}
 	
-	let style = recipeColor
+	let style = currentRecipe?.recipeColor
 		? {
-				background: `linear-gradient(to right, ${recipeColor.value}, 95%, #DDD8C4 5%)`,
+				background: `linear-gradient(to right, ${currentRecipe?.recipeColor.value}, 95%, #DDD8C4 5%)`,
 		  }
 		: {
 				background: `linear-gradient(to right, #327158, 95%, #DDD8C4 5%)`,
@@ -53,7 +53,7 @@ export default function SingleRecipe({ cR }) {
 						<tr className={s["recipe__head-main--ingredients-table-row"]}>
 							<td></td>&nbsp;
 						</tr>
-						{allIng.map((ing, idx) => {
+						{currentRecipe?.allIng.map((ing, idx) => {
 							return (
 								<tr
 									key={idx}
@@ -82,7 +82,7 @@ export default function SingleRecipe({ cR }) {
 			<div className={s["recipe"]}>
 				<div className={s["recipe__head"]}>
 					<div className={s["recipe__head-title-tagsline"]}>
-						<div className={s["recipe__head-title"]}>{currentRecipe.title}</div>
+						<div className={s["recipe__head-title"]}>{currentRecipe?.title}</div>
 						<div className={s["recipe__head-tagsline"]}>{tagsline()}</div>
 					</div>
 
@@ -97,10 +97,10 @@ export default function SingleRecipe({ cR }) {
 
 						<div className={s["recipe__head-main--summary"]}>
 							<span className={s["recipe__head-main--summary-main"]}>
-								{summary.summary_main}
+								{currentRecipe?.summary?.summary_main}
 							</span>
 							<span className={s["recipe__head-main--summary-byline"]}>
-								{summary.summary_byline}
+								{currentRecipe?.summary?.summary_byline}
 							</span>
 						</div>
 					</div>
@@ -108,19 +108,23 @@ export default function SingleRecipe({ cR }) {
 					<div className={s["recipe__head-diff-image-info"]}>
 						<div className={s["recipe__head-diff"]}>
 							{/* {difficultyBar()} */}
-							{difficulty}
+							{currentRecipe?.difficulty}
 						</div>
 
 						<div className={s["recipe__head-image"]}>
 							{/* TESTIMAGEURL NOW! */}
-							<Image
-								src={mainImageUrl}
-								alt=""
-								className={s["recipe__head-image-img"]}
-								width={550}
-								height={550}
-								layout="responsive"
-							/>
+							{currentRecipe?.mainImageUrl && (
+								<Image
+									src={currentRecipe?.mainImageUrl}
+									alt=""
+									className={s["recipe__head-image-img"]}
+									width={350}
+									height={350}
+									// width={200}
+									// height={200}
+									layout="responsive"
+								/>
+							)}
 						</div>
 
 						<div className={s["recipe__head-info"]}>
@@ -129,10 +133,10 @@ export default function SingleRecipe({ cR }) {
 									<span className={s["recipe__head-info--total-text"]}>
 										total time:{" "}
 										<span className={s["recipe__head-info--total-num"]}>
-											{durationFix(
-												totalTime.totalHours,
-												totalTime.totalMinutes
-											)}
+											{(currentRecipe?.totalTime?.totalHours && currentRecipe?.totalTime?.totalMinutes) ? durationFix(
+												currentRecipe?.totalTime?.totalHours,
+												currentRecipe?.totalTime?.totalMinutes
+											) : ""}
 										</span>
 									</span>
 								</div>
@@ -140,7 +144,7 @@ export default function SingleRecipe({ cR }) {
 									<span className={s["recipe__head-info--serves-text"]}>
 										serves:{" "}
 										<span className={s["recipe__head-info--serves-num"]}>
-											{currentRecipe.recipeYield}
+											{currentRecipe?.recipeYield}
 										</span>
 									</span>
 								</div>
@@ -151,7 +155,7 @@ export default function SingleRecipe({ cR }) {
 									<span className={s["recipe__head-info--prep-text"]}>
 										prep time:{" "}
 										<span className={s["recipe__head-info--prep-num"]}>
-											{durationFix(prepTime.prepHours, prepTime.prepMinutes)}
+											{(currentRecipe?.prepTime?.prepMinutes && currentRecipe?.prepTime?.prepHours) ? durationFix(currentRecipe.prepTime?.prepHours, currentRecipe.prepTime?.prepMinutes) : ""}
 										</span>
 									</span>
 								</div>

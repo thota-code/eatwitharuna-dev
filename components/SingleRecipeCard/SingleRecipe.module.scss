@@ -145,6 +145,10 @@
             max-height: 55rem;
             min-width: 55rem;
             max-width: 55rem;
+
+            @media only screen and (max-width: 900px) {
+                   display: none;
+            }
         }
 
         &-info {

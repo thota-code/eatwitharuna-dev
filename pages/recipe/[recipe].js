@@ -64,7 +64,7 @@ const Recipe = ({ currentRecipe }) => {
 	return (
 		<>
 			<Head>
-				<title>{currentRecipe[0].title}</title>
+				<title>{currentRecipe[0]?.title}</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
 

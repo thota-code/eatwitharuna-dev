@@ -148,7 +148,7 @@ const FeaturedRecipe = ({ recipes }) => {
 					<div className={s["featured__info-time"]}>
 						<span className={s["featured__info-time--text"]}>time/h:</span>
 						<span className={s["featured__info-time--num"]}>
-							{toHourRound(fR.totalTime.totalHours)}
+							{toHourRound(fR.totalTime?.totalHours)}
 						</span>
 					</div>
 

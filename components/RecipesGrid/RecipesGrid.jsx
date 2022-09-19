@@ -25,7 +25,7 @@ const RecipeTile = React.forwardRef(({ recipe, href, onClick }, ref) => {
 
 					<div className={s["grid__main-tile-info"]}>
 						<span className={s["grid__main-tile-info--time"]}>
-							o {toHourRound(totalTime.totalHours, totalTime.totalMinutes)}h
+							o {totalTime?.totalHours ? toHourRound(totalTime?.totalHours, totalTime?.totalMinutes) : ""}h
 							{/* clock svg */}
 						</span>
 
